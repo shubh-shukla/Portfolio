@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 const title = 'Shubham Shukla | Full Stack Developer From Bengaluru, India.';
 const description =
   'A self-proclaimed designer who specializes in full stack development (MERN, NextJS, React Native), from Bengaluru, India.';
-const url = 'https://shubhamshukla.dev';
+const url = 'https://github.com/shubh-shukla';
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
