@@ -76,7 +76,7 @@ export const SOCIAL_LINKS = [
   },
   {
     icon: X,
-    url: 'https://x.com/shubh-shukla',
+    url: 'https://x.com/shubh_shukla29',
   },
   {
     icon: Linkedin,
