@@ -206,18 +206,31 @@ export const PROJECTS: ProjectDetails[] = [
     description:
       'This Realtime Chat App is a dynamic web application developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It harnesses the power of WenSockets for seamless and real-time communication, enabling users to engage in instant messaging with ease.',
     url: 'https://github.com/shubh-shukla/ChatSphere',
-    previewImage: ChatSphere,
+    previewImage: "https://res.cloudinary.com/shubham-node/image/upload/v1716134122/Chat_umvhrx.png",
     technologies: [
-      'Javascript',
-      'React',
-      'NodeJS',
+      'React.js',
+      'Node.js',
       'MongoDB',
-      'ExpressJS',
+      'Express.js',
+      'Javascript',
       'Tailwindcss',
       'WebSockets',
       'Cloudinary',
     ],
   },
+  {
+    name: 'XtraTune',
+    description: "Crafted a sleek and intuitive song streaming application using Next.js and React.js, seamlessly integrating navigation and playback functionalities for an enhanced user experience.",
+    url: 'https://github.com/shubh-shukla/XtraTune',
+    previewImage: "https://res.cloudinary.com/shubham-node/image/upload/v1717314084/Screenshot_2024-06-02_at_1.07.27_PM_f2zoye.png",
+    technologies: [
+      'Next.js',
+      'React.js',
+      'Radix UI',
+      'Typescript',
+      'Tailwindcss'
+    ],
+  }
 ];
 
 export const TESTIMONIALS: TestimonialDetails[] = [

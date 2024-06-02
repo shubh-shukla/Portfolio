@@ -34,6 +34,8 @@ const ProjectDetails = ({
         <Link noCustomization href={url} externalLink>
           <Image
             src={previewImage}
+            width={480}
+            height={260}
             alt={`${name} preview`}
             className="rounded-xl shadow-lg transition-transform duration-500 md:hover:scale-105"
             style={{ objectFit: 'cover' }}
