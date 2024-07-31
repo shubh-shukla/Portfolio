@@ -237,7 +237,7 @@ export const TESTIMONIALS: TestimonialDetails[] = [
   {
     personName: 'Ujjwal Kumar',
     personAvatar: AvatarUjjwal,
-    title: 'Member of Technical Staff - Metricstream',
+    title: 'Senior Member of Technical Staff - Metricstream',
     testimonial:
       'Shubham and I joined Metricstream together after college. It\'s been around 3 years that we worked together on multiple challenging project. He is always willing to work hard and stick with a task until completed. In addition he consistently demonstrated an ability to work with many different people in a successful manner.He always brings a new perspective to the table. He is goal driven and always delivers more than what is expected. He strives for excellence and makes no compromises on quality. I have personally learnt a great deal from him and his way of working.',
   },
@@ -251,7 +251,7 @@ export const TESTIMONIALS: TestimonialDetails[] = [
   {
     personName: 'Shekhar Dubey',
     personAvatar: AvatarShekhar,
-    title: 'Member of Technical Staff - Metricstream',
+    title: 'Senior Member of Technical Staff - Metricstream',
     testimonial:
       'Shubham is a sincere & hard working guy who finds his way through most of challenging projects. He is a quick learner and aspires to reach newer heights all the time. He\'s a great person to work with and always try to build great solutions. He worked in Mobile as well as Web Apps team for Metricstream where he built products from scratch. He\'s self driven and focuses on developing high quality end product while meeting the deadlines.He will be an asset to any organization, wishing him the very best for all his professional endeavors.',
   },
