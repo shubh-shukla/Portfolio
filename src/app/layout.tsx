@@ -9,9 +9,9 @@ import Footer from '@/components/layout/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const title = 'Shubham Shukla | Full Stack Developer From Bengaluru, India.';
+const title = 'Shubham Shukla | Full Stack Application Developer From India.';
 const description =
-  'A self-proclaimed designer who specializes in full stack development (MERN, NextJS, React Native), from Bengaluru, India.';
+  'A self-proclaimed designer who specializes in full stack development (React Native, MERN, NextJS), from Bengaluru, India.';
 const url = 'https://shubham-shukla.vercel.app';
 
 export const metadata: Metadata = {
@@ -20,9 +20,15 @@ export const metadata: Metadata = {
   description,
   keywords: [
     'Frontend Developer',
+    'Application Developer',
     'Full Stack Developer',
     'React Developer',
     'Next.js Developer',
+    'React Native Developer',
+    'iOS Developer',
+    'Android Developer',
+    'MERN Stack Developer',
+    'Node.js Developer',
   ],
   creator: 'Shubham Shukla',
   themeColor: [

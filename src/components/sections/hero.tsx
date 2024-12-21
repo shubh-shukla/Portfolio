@@ -31,11 +31,12 @@ const HeroSection = () => {
               <span className="inline-block animate-waving-hand">👋</span>
             </Typography>
             <Typography>
-              I&apos;m a full stack developer (MERN, NextJS & React Native) with a focus
-              on creating exceptional digital
+              Mobile developer at heart, full-stack by experience—skilled in React Native, 
+              MERN, and Next.js. I specialize in building dynamic cross-platform applications 
+              with a focus on creating exceptional digital
               experiences that are fast, accessible, visually appealing, and
-              responsive. Even though I have been creating web applications for
-              over 3 years, I still love it as if it was something new.
+              responsive. Even though I have been creating applications for
+              nearly 4 years, I still love it as if it was something new.
             </Typography>
           </div>
           <div className="flex flex-col gap-2">

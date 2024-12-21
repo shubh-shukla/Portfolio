@@ -32,7 +32,7 @@ const AboutMeSection = () => {
             Curious about me? Here you have it:
           </Typography>
           <Typography>
-            Welcome to my realm as a dynamic web developer! 🌟<br /><br />
+            Welcome to my realm as a dynamic application developer! 🌟<br /><br />
             I&apos;m a passionate Full Stack Engineer
             who specializes in full stack development for both web and mobile. I am
             enthusiastic about bringing the technical and visual aspects of
@@ -40,17 +40,17 @@ const AboutMeSection = () => {
             writing clear, readable, highly performant code matters to me.
           </Typography>
           <Typography>
-            Embarking on my journey into web development in 2021 was just the beginning of an exciting adventure, and since then,
+            Embarking on my journey into app development in 2021 was just the beginning of an exciting adventure, and since then,
             I&apos;ve continued to grow and evolve as a developer, taking on new
             challenges and learning the latest technologies along the way. Now,
-            in my early twenties, 3 years after starting my web development
-            journey, I&apos;m building cutting-edge web applications using
-            modern technologies such as Next.js, TypeScript, NodeJS,
-            Tailwindcss, React, React Native and much more.
+            in my early twenties, nearly 4 years after starting my development
+            journey, I&apos;m building cutting-edge iOS, Android and Web applications using
+            modern technologies such as React Native, Next.js, React.js, TypeScript, NodeJS,
+            Tailwindcss, and much more.
           </Typography>
           <Typography>
-          Driven by creativity and fueled by innovation, I thrive on pushing the boundaries of what's possible in web development. From crafting pixel-perfect designs to optimizing performance, I am dedicated to delivering exceptional results that exceed expectations and inspire action. 🎨<br /><br />
-            Join me on this exhilarating journey as we unlock the full potential of web development, one line of code at a time. 💻
+          Driven by creativity and fueled by innovation, I thrive on pushing the boundaries of what's possible in app development. From crafting pixel-perfect designs to optimizing performance, I am dedicated to delivering exceptional results that exceed expectations and inspire action. 🎨<br /><br />
+            Join me on this exhilarating journey as we unlock the full potential of hybrid app development, one line of code at a time. 💻
           </Typography>
           <Typography>
             When I&apos;m not in full-on developer mode, you can find me
