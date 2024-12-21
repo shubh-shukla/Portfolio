@@ -17,10 +17,20 @@ import LogoTailwindcss from '/public/images/logos/icon-tailwindcss.svg';
 import LogoFigma from '/public/images/logos/icon-figma.svg';
 import LogoGit from '/public/images/logos/icon-git.svg';
 import LogoJest from '/public/images/logos/icon-jest.svg';
+import LogoIOS from '/public/images/logos/icon-ios.svg';
+import LogoIOSLight from '/public/images/logos/icon-ios-light.svg';
+import LogoAndroid from '/public/images/logos/icon-android.svg';
+import LogoStorybook from '/public/images/logos/icon-storybook.svg';
+import LogoXcode from '/public/images/logos/icon-xcode.svg';
+import LogoAndroidStudio from '/public/images/logos/icon-android-studio.svg';
+import LogoPostman from '/public/images/logos/icon-postman.svg';
+import LogoRealm from '/public/images/logos/icon-realm.svg';
+import LogoJenkins from '/public/images/logos/icon-jenkins.svg';
 
 import LogoMSI from '/public/images/logos/logo-msi.svg';
 import LogoMSILight from '/public/images/logos/logo-msi-light.svg';
 import LogoUpaayIndia from '/public/images/logos/logo-upaayindia.png';
+import LogoACV from '/public/images/logos/logo-acv.png';
 
 import AvatarKartik from '/public/images/avatar-kartik.png';
 import AvatarUjjwal from '/public/images/avatar-ujjwal.png';
@@ -106,6 +116,17 @@ export const TECHNOLOGIES: TechDetails[] = [
     url: 'https://reactnative.dev/',
   },
   {
+    label: 'iOS',
+    logo: LogoIOS,
+    darkModeLogo: LogoIOSLight,
+    url: 'https://developer.apple.com/ios/',
+  },
+  {
+    label: 'Android',
+    logo: LogoAndroid,
+    url: 'https://developer.android.com/',
+  },
+  {
     label: 'Next.js',
     logo: LogoNextjs,
     url: 'https://nextjs.org/',
@@ -138,6 +159,11 @@ export const TECHNOLOGIES: TechDetails[] = [
     url: 'https://www.mongodb.com/',
   },
   {
+    label: 'Realm',
+    logo: LogoRealm,
+    url: 'https://realm.io/',
+  },
+  {
     label: 'D3js',
     logo: LogoD3js,
     url: 'https://d3js.org/',
@@ -167,16 +193,55 @@ export const TECHNOLOGIES: TechDetails[] = [
     logo: LogoGit,
     url: 'https://git-scm.com/',
   },
+  {
+    label: 'Storybook',
+    logo: LogoStorybook,
+    url: 'https://storybook.js.org/',
+  },
+  {
+    label: 'Jenkins',
+    logo: LogoJenkins,
+    url: 'https://www.jenkins.io/',
+  },
+  {
+    label: 'Xcode',
+    logo: LogoXcode,
+    url: 'https://developer.apple.com/xcode/',
+  },
+  {
+    label: 'Android Studio',
+    logo: LogoAndroidStudio,
+    url: 'https://developer.android.com/studio',
+  },
+  {
+    label: 'Postman',
+    logo: LogoPostman,
+    url: 'https://www.postman.com/',
+  },
 ];
 
 export const EXPERIENCES: ExperienceDetails[] = [
+  {
+    logo: LogoACV,
+    logoAlt: 'ACV logo',
+    position: 'Software Engineer 2',
+    startDate: new Date(2024, 10),
+    currentlyWorkHere: true,
+    summary: [
+      "Contributing to the development and optimization of the Vehicle Inspection App using React Native for both iOS and Android platforms",
+      "Developing and implementing new features to enhance user experience and meet business requirements",
+      "Writing clean, maintainable code and conducting code reviews to uphold best practices",
+      "Addressing bugs and enhancing app stability through rigorous testing and debugging",
+      "Performing rigorous testing (unit, integration, and UI tests) to ensure stability and reliability",
+    ],
+  },
   {
     logo: LogoMSI,
     darkModeLogo: LogoMSILight,
     logoAlt: 'Metricstream logo',
     position: 'Senior Member of Technical Staff',
     startDate: new Date(2024, 6),
-    currentlyWorkHere: true,
+    endDate: new Date(2024, 9),
     summary: [
       "Led the development of Audit Plan and Scope modules from scratch using AgGrid and React.js",
       "Modernized the frontend framework, transitioning from Backbone.js to Next.js",
