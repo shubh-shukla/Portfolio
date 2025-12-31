@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 
-import ShubhamHeadshot from '/public/images/shubham-headshot.jpg';
+import ShubhamHeadshot from '/public/images/shubham-headshot.webp';
 import SocialIcons from '@/components/data-display/social-icons';
 import Typography from '@/components/general/typography';
 import Container from '@/components/layout/container';
