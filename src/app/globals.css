@@ -16,6 +16,9 @@
   --app-gray-800: 31 41 55;
   --app-gray-900: 17 24 39;
   --app-gray-950: 3 7 18;
+  --accent-indigo: 79 70 229;
+  --accent-cyan: 14 165 233;
+  --accent-emerald: 16 185 129;
 }
 
 .dark {
@@ -31,4 +34,31 @@
   --app-gray-800: 243 244 246;
   --app-gray-900: 249 250 251;
   --app-gray-950: 255 255 255;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  background-color: rgb(var(--app-gray-default));
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.10), transparent 35%),
+    radial-gradient(circle at 78% 8%, rgba(99, 102, 241, 0.12), transparent 32%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 244, 250, 0.9));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dark body {
+  background-color: #0b1224;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.18), transparent 35%),
+    radial-gradient(circle at 78% 8%, rgba(99, 102, 241, 0.2), transparent 32%),
+    linear-gradient(145deg, rgba(10, 17, 38, 0.88), rgba(12, 22, 46, 0.95));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+::selection {
+  background-color: rgba(79, 70, 229, 0.16);
+  color: rgb(var(--app-gray-900));
 }

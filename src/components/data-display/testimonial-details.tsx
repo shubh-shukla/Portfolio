@@ -12,26 +12,26 @@ const TestimonialDetails = ({
   company,
 }: TestimonialDetailsProps) => {
   return (
-    <Card className="mx-auto flex flex-col justify-between items-center gap-6 p-8 md:w-2/3 md:p-12 lg:w-1/3">
-      <div className="mx-auto flex flex-col justify-between items-center gap-6">
-        <Image className="rounded-full" src={personAvatar!} alt={`${personName} avatar`}></Image>
-        <Typography>&quot;{testimonial}&quot;</Typography>
+    <Card className="mx-auto flex flex-col items-center justify-between gap-6 p-8 text-gray-800 md:p-10 dark:text-white">
+      <div className="mx-auto flex flex-col items-center justify-between gap-6">
+        <Image className="h-20 w-20 rounded-full" src={personAvatar!} alt={`${personName} avatar`}></Image>
+        <Typography className="text-center text-gray-700 dark:text-white/90">&quot;{testimonial}&quot;</Typography>
       </div>
-      <div className="flex w-full flex-col gap-1">
+      <div className="flex w-full flex-col gap-1 text-center">
         <Typography
           variant="subtitle"
-          className="w-full text-center font-semibold text-gray-900"
+          className="w-full font-semibold"
         >
           {personName}
         </Typography>
-        <Typography variant="body3" className="w-full text-center">
+        <Typography variant="body3" className="w-full text-gray-700 dark:text-white/80">
           {title}
         </Typography>
-        <Typography variant="body3" className="w-full text-center">
+        <Typography variant="body3" className="w-full text-gray-700 dark:text-white/80">
           {company}
         </Typography>
       </div>
-    </Card >
+    </Card>
   );
 };
 

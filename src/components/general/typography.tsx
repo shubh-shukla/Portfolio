@@ -3,16 +3,16 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { mergeClasses } from '@/lib/utils';
 
-const typographyVariants = cva('text-gray-600 text-normal', {
+const typographyVariants = cva('text-gray-800 dark:text-white/85 text-normal', {
   variants: {
     variant: {
-      h1: 'text-4xl font-semibold md:font-bold md:text-5xl md:tracking-[-0.02em] lg:text-6xl lg:leading-[72px] text-gray-900',
-      h2: 'text-lg md:text-4xl font-semibold tracking-[-0.02em] text-gray-900',
-      h3: 'text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-gray-900',
-      subtitle: 'text-lg md:text-xl',
-      body1: 'text-base md:text-lg',
-      body2: 'text-base',
-      body3: 'text-sm',
+      h1: 'text-4xl font-semibold md:font-bold md:text-5xl md:tracking-[-0.02em] lg:text-6xl lg:leading-[72px] text-gray-900 dark:text-white',
+      h2: 'text-lg md:text-4xl font-semibold tracking-[-0.02em] text-gray-900 dark:text-white',
+      h3: 'text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-gray-900 dark:text-white',
+      subtitle: 'text-lg md:text-xl text-gray-800 dark:text-white',
+      body1: 'text-base md:text-lg text-gray-700 dark:text-white/85',
+      body2: 'text-base text-gray-700 dark:text-white/85',
+      body3: 'text-sm text-gray-600 dark:text-white/75',
     },
   },
   defaultVariants: {

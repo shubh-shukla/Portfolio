@@ -9,68 +9,75 @@ import { EXTERNAL_LINKS } from '@/lib/data';
 
 const AboutMeSection = () => {
   return (
-    <Container className="bg-gray-50" id="about">
+    <Container
+      className="relative overflow-hidden"
+      id="about"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-80">
+        <div className="absolute left-[-10%] top-1/4 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.24),rgba(14,165,233,0))] blur-3xl" />
+        <div className="absolute right-[-6%] bottom-10 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.22),rgba(99,102,241,0))] blur-3xl" />
+      </div>
+
       <div className="self-center">
         <Tag label="About me" />
       </div>
 
-      <div className="flex w-full flex-col justify-between gap-12 md:flex-row">
+      <div className="grid w-full items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Image */}
-        <div className="flex justify-center items-center md:order-first md:justify-end">
-          <div className="relative h-[380px] w-[320px] md:h-[460px] md:w-[380px] lg:h-[520px] lg:w-[440px]">
-            <Image
-              src={AboutMeImage}
-              alt="Featured Image"
-              className="absolute z-10 h-[360px] w-[280px] border-8 border-gray-50 max-md:left-5 md:right-0 md:top-0 md:h-[420px] md:w-[340px] lg:h-[480px] lg:w-[400px]"
-              style={{ objectFit: 'cover' }}
-            ></Image>
+        <div className="relative flex justify-center lg:order-last">
+          <div className="relative w-full max-w-[460px]">
+            <div className="absolute inset-0 -z-10 rounded-[28px] bg-[conic-gradient(from_160deg_at_50%_50%,rgba(14,165,233,0.12),rgba(99,102,241,0.18),rgba(16,185,129,0.12),rgba(14,165,233,0.12))] opacity-90 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[24px] border border-white/15 bg-white/10 shadow-[0_28px_120px_-50px_rgba(15,23,42,0.9)] backdrop-blur">
+              <Image
+                src={AboutMeImage}
+                alt="Featured Image"
+                className="h-[360px] w-full object-cover md:h-[440px] lg:h-[500px]"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray/45 via-transparent" />
+            </div>
           </div>
         </div>
+
         {/* Content */}
-        <div className="flex flex-col gap-6">
+        <div className="relative z-10 flex flex-col gap-6">
           <Typography variant="h3">
             Curious about me? Here you have it:
           </Typography>
+          <div className="grid gap-4">
+            <Typography>
+              Mobile-first engineer shipping calm, reliable products across React Native, Next.js, and Node. I obsess over performance, accessibility, and delightful interactions.
+            </Typography>
+            <Typography>
+              Started in 2021, since then I&apos;ve shipped across iOS/Android/web, modernized stacks, and led teams to launch features with measurable impact.
+            </Typography>
+            <Typography>
+              When I&apos;m not in build mode, I share learnings, mentor, and prototype new interactions. Always exploring how to make complex systems feel effortless.
+            </Typography>
+          </div>
+          <div className="flex flex-wrap gap-3 text-sm">
+            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">React Native · Next.js · Node</span>
+            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">DX & Performance</span>
+            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">Team leadership</span>
+          </div>
           <Typography>
-            Welcome to my realm as a dynamic application developer! 🌟<br /><br />
-            I&apos;m a passionate Full Stack Engineer
-            who specializes in full stack development for both web and mobile. I am
-            enthusiastic about bringing the technical and visual aspects of
-            digital products to life. User experience, pixel perfect design, and
-            writing clear, readable, highly performant code matters to me.
-          </Typography>
-          <Typography>
-            Embarking on my journey into app development in 2021 was just the beginning of an exciting adventure, and since then,
-            I&apos;ve continued to grow and evolve as a developer, taking on new
-            challenges and learning the latest technologies along the way. Now,
-            in my early twenties, nearly 5 years after starting my development
-            journey, I&apos;m building cutting-edge iOS, Android and Web applications using
-            modern technologies such as React Native, Next.js, React.js, TypeScript, NodeJS,
-            Tailwindcss, and much more.
-          </Typography>
-          <Typography>
-          Driven by creativity and fueled by innovation, I thrive on pushing the boundaries of what's possible in app development. From crafting pixel-perfect designs to optimizing performance, I am dedicated to delivering exceptional results that exceed expectations and inspire action. 🎨<br /><br />
-            Join me on this exhilarating journey as we unlock the full potential of hybrid app development, one line of code at a time. 💻
-          </Typography>
-          <Typography>
-            When I&apos;m not in full-on developer mode, you can find me
-            hovering around on linkedin or on youtube, learning new tech or enjoying some free time. You can follow
-            me on{' '}
+            Find me on{' '}
             <Link
               noCustomization
               externalLink
               withUnderline
               href={EXTERNAL_LINKS.LINKEDIN}
+              className="text-inherit"
             >
               Linkedin
             </Link>{' '}
-            where I share tech-related bites and build in public, or you can
-            follow me on{' '}
+            or follow builds on{' '}
             <Link
               noCustomization
               externalLink
               withUnderline
               href={EXTERNAL_LINKS.GITHUB}
+              className="text-inherit"
             >
               GitHub
             </Link>

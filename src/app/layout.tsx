@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { Inter } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 import { Metadata } from 'next';
 
 import './globals.css';
@@ -7,7 +7,7 @@ import Header from '@/components/layout/header';
 import { Providers } from '@/lib/providers';
 import Footer from '@/components/layout/footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sans' });
 
 const title = 'Shubham Shukla | Full Stack Application Developer From India.';
 const description =
@@ -87,7 +87,9 @@ export default function RootLayout({
           </Script>
         </head>
       ) : null}
-      <body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
+      <body
+        className={`${spaceGrotesk.className} bg-gray text-gray-900 antialiased dark:bg-gray dark:text-gray-100`}
+      >
         <Providers>
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>

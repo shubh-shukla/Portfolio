@@ -23,19 +23,20 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     }: LinkProps,
     ref
   ) => {
+    const baseClasses = noCustomization
+      ? ''
+      : 'text-base font-medium text-gray-700 transition-all hover:text-gray-900 active:text-gray-700 dark:text-white/80 dark:hover:text-white dark:active:text-white/80';
+
+    const underlineClasses = withUnderline
+      ? 'underline underline-offset-4 transition-all hover:text-gray-900 active:text-gray-700 dark:hover:text-white dark:active:text-white/80'
+      : '';
+
     return (
       <NextLink
         {...props}
         target={externalLink ? '_blank' : '_self'}
         ref={ref}
-        className={mergeClasses(
-          noCustomization ??
-            'text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600',
-          withUnderline
-            ? 'underline underline-offset-4 transition-all hover:text-gray-900 active:text-gray-600'
-            : '',
-          className
-        )}
+        className={mergeClasses(baseClasses, underlineClasses, className)}
       >
         {children}
       </NextLink>

@@ -10,6 +10,7 @@ const SocialIcons = () => {
         <IconButton
           key={index}
           onClick={() => window.open(socialLink.url, '_blank')}
+          aria-label={socialLink.icon.displayName || 'social icon'}
         >
           <socialLink.icon />
         </IconButton>
