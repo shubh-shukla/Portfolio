@@ -36,7 +36,7 @@ const HeroSection = () => {
               with a focus on creating exceptional digital
               experiences that are fast, accessible, visually appealing, and
               responsive. Even though I have been creating applications for
-              nearly 4 years, I still love it as if it was something new.
+              nearly 5 years, I still love it as if it was something new.
             </Typography>
           </div>
           <div className="flex flex-col gap-2">

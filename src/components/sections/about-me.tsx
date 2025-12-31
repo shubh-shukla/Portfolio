@@ -43,7 +43,7 @@ const AboutMeSection = () => {
             Embarking on my journey into app development in 2021 was just the beginning of an exciting adventure, and since then,
             I&apos;ve continued to grow and evolve as a developer, taking on new
             challenges and learning the latest technologies along the way. Now,
-            in my early twenties, nearly 4 years after starting my development
+            in my early twenties, nearly 5 years after starting my development
             journey, I&apos;m building cutting-edge iOS, Android and Web applications using
             modern technologies such as React Native, Next.js, React.js, TypeScript, NodeJS,
             Tailwindcss, and much more.
