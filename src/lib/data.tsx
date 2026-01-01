@@ -66,6 +66,10 @@ export const NAV_LINKS = [
     href: '#skills',
   },
   {
+    label: 'How I work',
+    href: '#how-i-work',
+  },
+  {
     label: 'Work',
     href: '#work',
   },
