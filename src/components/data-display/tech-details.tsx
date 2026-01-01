@@ -7,7 +7,7 @@ import ImageWrapper from '@/components/data-display/image-wrapper';
 
 const TechDetails = ({ url, logo, darkModeLogo, label }: TechDetails) => {
   return (
-    <div className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent bg-transparent p-4 shadow-none transition hover:-translate-y-1">
+    <div className="tilt-hover group flex flex-col items-center gap-3 rounded-2xl border border-transparent bg-transparent p-4 shadow-none transition hover:-translate-y-1">
       <Link noCustomization href={url} externalLink>
         <ImageWrapper
           src={logo}

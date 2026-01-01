@@ -11,6 +11,7 @@ const SocialIcons = () => {
           key={index}
           onClick={() => window.open(socialLink.url, '_blank')}
           aria-label={socialLink.icon.displayName || 'social icon'}
+          className="tilt-hover"
         >
           <socialLink.icon />
         </IconButton>

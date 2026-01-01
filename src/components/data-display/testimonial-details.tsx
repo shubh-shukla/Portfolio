@@ -12,7 +12,7 @@ const TestimonialDetails = ({
   company,
 }: TestimonialDetailsProps) => {
   return (
-    <Card className="mx-auto flex flex-col items-center justify-between gap-6 p-8 text-gray-800 md:p-10 dark:text-white">
+    <Card className="tilt-hover mx-auto flex flex-col items-center justify-between gap-6 p-8 text-gray-800 md:p-10 dark:text-white">
       <div className="mx-auto flex flex-col items-center justify-between gap-6">
         <Image className="h-20 w-20 rounded-full" src={personAvatar!} alt={`${personName} avatar`}></Image>
         <Typography className="text-center text-gray-700 dark:text-white/90">&quot;{testimonial}&quot;</Typography>

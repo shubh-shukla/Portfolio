@@ -19,7 +19,7 @@ const ExperienceDetails = ({
   summary,
 }: ExperienceDetailsProps) => {
   return (
-    <Card className="relative mx-auto flex w-full max-w-4xl flex-col justify-between gap-4 overflow-hidden p-8 md:flex-row md:gap-8">
+    <Card className="tilt-hover relative mx-auto flex w-full max-w-4xl flex-col justify-between gap-4 overflow-hidden p-8 md:flex-row md:gap-8">
       <div className="max-md:order-1 md:w-1/4 mt-[-5px]">
         <ImageWrapper
           src={logo}
