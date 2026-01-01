@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 
 import ShubhamHeadshot from '/public/images/shubham-headshot.webp';
@@ -7,6 +9,8 @@ import Container from '@/components/layout/container';
 import DownloadCV from '@/components/general/download-cv';
 import Button from '@/components/general/button';
 import Link from '@/components/navigation/link';
+import Reveal from '@/components/general/reveal';
+import { useParallax } from '@/hooks/use-parallax';
 
 const HeroSection = () => {
   const achievements = [
@@ -17,6 +21,8 @@ const HeroSection = () => {
 
   const ctaClass =
     'relative inline-flex items-center justify-center gap-2 rounded-xl border border-white/16 bg-black px-5 py-2 text-sm font-semibold text-white shadow-[0_18px_60px_-32px_rgba(0,0,0,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-[#0a0f1a] hover:shadow-[0_22px_70px_-30px_rgba(0,0,0,0.95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent-indigo))]';
+
+  const { ref: parallaxRef } = useParallax<HTMLDivElement>(0.12);
 
   return (
     <Container
@@ -31,7 +37,7 @@ const HeroSection = () => {
 
       <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="z-10 flex flex-col gap-8">
-          <div className="flex flex-wrap items-center gap-3">
+          <Reveal className="flex flex-wrap items-center gap-3" delay={80}>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-black px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-[0_14px_50px_-26px_rgba(0,0,0,0.85)]">
               <span className="relative inline-flex h-2 w-2">
                 <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -42,9 +48,9 @@ const HeroSection = () => {
             <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800 shadow-sm backdrop-blur dark:border-white/15 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">
               Shipping resilient products for high-stakes teams
             </span>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col gap-4 max-w-3xl">
+          <Reveal className="flex flex-col gap-4 max-w-3xl" delay={120}>
             <Typography
               variant="h1"
               className="text-balance text-gray-900 dark:text-white"
@@ -57,9 +63,9 @@ const HeroSection = () => {
               I lead squads, ship across React Native, React.js, Next.js, and Node, and obsess over
               performance, accessibility, and thoughtful interfaces.
             </Typography>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <Reveal className="flex flex-wrap items-center gap-3" delay={160}>
             <DownloadCV className={ctaClass} />
             <Button
               asChild
@@ -85,12 +91,13 @@ const HeroSection = () => {
                 Let&apos;s talk
               </Link>
             </Button>
-          </div>
+          </Reveal>
 
           <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {achievements.map((item, index) => (
-              <div
+              <Reveal
                 key={index}
+                delay={140 + index * 80}
                 className="relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-[0_18px_60px_-38px_rgba(15,23,42,0.25)] backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_24px_70px_-36px_rgba(15,23,42,0.35)] dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:shadow-[0_28px_90px_-44px_rgba(0,0,0,0.85)] dark:hover:shadow-[0_30px_100px_-46px_rgba(0,0,0,0.9)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-white/0 dark:from-white/8 dark:via-white/4 dark:to-white/0" />
@@ -100,7 +107,7 @@ const HeroSection = () => {
                 <p className="mt-2 text-base font-semibold text-gray-900 drop-shadow-[0_1px_3px_rgba(255,255,255,0.35)] dark:text-white dark:drop-shadow-[0_1px_6px_rgba(0,0,0,0.3)]">
                   {item.value}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -119,7 +126,11 @@ const HeroSection = () => {
         </div>
 
         <div className="relative z-10 flex w-full justify-center">
-          <div className="relative w-full max-w-[440px]">
+          <div
+            className="relative w-full max-w-[440px] transition-transform duration-500 ease-out will-change-transform"
+            ref={parallaxRef}
+            style={{ transform: 'translate3d(0, var(--parallax-y, 0px), 0)' }}
+          >
             <div className="absolute inset-0 -z-10 rounded-[32px] bg-[conic-gradient(from_120deg_at_50%_50%,rgba(14,165,233,0.1),rgba(99,102,241,0.22),rgba(16,185,129,0.16),rgba(14,165,233,0.1))] opacity-80 blur-3xl" />
             <div className="relative overflow-hidden rounded-[28px] border border-gray-200/70 bg-white/85 p-4 shadow-[0_30px_120px_-50px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/15 dark:bg-white/8 dark:shadow-[0_40px_140px_-55px_rgba(15,23,42,1)]">
               <div className="relative overflow-hidden rounded-2xl bg-[linear-gradient(145deg,rgba(99,102,241,0.08),rgba(16,185,129,0.08))]">

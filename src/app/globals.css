@@ -58,6 +58,17 @@ body {
   background-size: cover;
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+  z-index: 1;
+}
+
 ::selection {
   background-color: rgba(79, 70, 229, 0.16);
   color: rgb(var(--app-gray-900));
@@ -88,4 +99,26 @@ body {
   to {
     transform: translateX(120%);
   }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tilt-hover {
+  transition: transform 450ms ease, box-shadow 450ms ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-hover:hover {
+  transform: perspective(800px) rotateX(4deg) rotateY(-4deg) translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 80px -50px rgba(0, 0, 0, 0.55);
 }
