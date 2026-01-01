@@ -87,14 +87,17 @@ export const SOCIAL_LINKS = [
   {
     icon: Github,
     url: 'https://github.com/shubh-shukla',
+    label: 'GitHub',
   },
   {
     icon: X,
     url: 'https://x.com/shubh_shukla29',
+    label: 'X',
   },
   {
     icon: Linkedin,
     url: 'https://www.linkedin.com/in/shubham-shukla29',
+    label: 'LinkedIn',
   }
 ];
 

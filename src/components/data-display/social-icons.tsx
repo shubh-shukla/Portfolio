@@ -10,7 +10,7 @@ const SocialIcons = () => {
         <IconButton
           key={index}
           onClick={() => window.open(socialLink.url, '_blank')}
-          aria-label={socialLink.icon.displayName || 'social icon'}
+          aria-label={socialLink.label || 'social icon'}
           className="tilt-hover"
         >
           <socialLink.icon />
