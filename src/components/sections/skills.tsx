@@ -7,10 +7,6 @@ import Container from '@/components/layout/container';
 const SkillsSection = () => {
   return (
     <Container id="skills" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-60 dark:opacity-70">
-        <div className="absolute left-[-5%] top-10 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.16),rgba(14,165,233,0))] blur-3xl" />
-        <div className="absolute right-[-8%] bottom-0 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.18),rgba(99,102,241,0))] blur-3xl" />
-      </div>
 
       <div className="flex flex-col items-center gap-4 text-gray-900 dark:text-white">
         <div className="self-center">

@@ -2,9 +2,16 @@
 
 import Button from '@/components/general/button';
 
-const DownloadCV = () => {
+type DownloadCVProps = {
+  className?: string;
+};
+
+const DownloadCV = ({ className }: DownloadCVProps) => {
   return (
-    <Button onClick={() => window?.open('/files/Shubham_Sr_Software_Eng_CV.pdf', '_blank')}>
+    <Button
+      className={className}
+      onClick={() => window?.open('/files/Shubham_Sr_Software_Eng_CV.pdf', '_blank')}
+    >
       Download CV
     </Button>
   );

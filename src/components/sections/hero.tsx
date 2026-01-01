@@ -15,6 +15,9 @@ const HeroSection = () => {
     { label: 'Leadership', value: 'Mentored squads across timezones' },
   ];
 
+  const ctaClass =
+    'relative inline-flex items-center justify-center gap-2 rounded-xl border border-white/16 bg-black px-5 py-2 text-sm font-semibold text-white shadow-[0_18px_60px_-32px_rgba(0,0,0,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/26 hover:bg-[#0a0f1a] hover:shadow-[0_22px_70px_-30px_rgba(0,0,0,0.95)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent-indigo))]';
+
   return (
     <Container
       id="hero"
@@ -29,7 +32,7 @@ const HeroSection = () => {
       <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="z-10 flex flex-col gap-8">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-black px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-[0_14px_50px_-26px_rgba(0,0,0,0.85)]">
               <span className="relative inline-flex h-2 w-2">
                 <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -57,10 +60,10 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <DownloadCV />
+            <DownloadCV className={ctaClass} />
             <Button
               asChild
-              className="border border-gray-900 bg-gray-900 text-white shadow-[0_18px_60px_-32px_rgba(15,23,42,0.6)] hover:shadow-[0_22px_70px_-30px_rgba(15,23,42,0.75)] dark:border-white/25 dark:bg-white/12 dark:text-white dark:shadow-[0_18px_60px_-32px_rgba(79,70,229,0.7)] dark:hover:border-white/35 dark:hover:bg-white/16 dark:hover:shadow-[0_22px_70px_-30px_rgba(79,70,229,0.9)] after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.25)] after:opacity-60 after:blur-[0.5px]"
+              className={`${ctaClass} after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.25)] after:opacity-60 after:blur-[0.5px]`}
             >
               <Link externalLink href="https://github.com/shubh-shukla" noCustomization>
                 View GitHub
@@ -68,7 +71,7 @@ const HeroSection = () => {
             </Button>
             <Button
               asChild
-              className="border border-gray-300 bg-white text-gray-900 hover:border-gray-400 hover:bg-gray-50 after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.18)] after:opacity-60 after:blur-[0.5px] dark:border-white/14 dark:bg-[rgba(8,12,24,0.9)] dark:text-white dark:hover:border-white/24 dark:hover:bg-[rgba(8,12,24,0.96)]"
+              className={`${ctaClass} after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.18)] after:opacity-60 after:blur-[0.5px]`}
             >
               <Link href="#work" noCustomization>
                 Explore work
@@ -76,7 +79,7 @@ const HeroSection = () => {
             </Button>
             <Button
               asChild
-              className="border border-gray-300 bg-white text-gray-900 hover:border-gray-400 hover:bg-gray-50 after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.18)] after:opacity-60 after:blur-[0.5px] dark:border-white/14 dark:bg-[rgba(8,12,24,0.9)] dark:text-white dark:hover:border-white/24 dark:hover:bg-[rgba(8,12,24,0.96)]"
+              className={`${ctaClass} after:pointer-events-none after:absolute after:inset-[-1px] after:rounded-xl after:border after:border-[rgba(255,255,255,0.18)] after:opacity-60 after:blur-[0.5px]`}
             >
               <Link href="#contact" noCustomization>
                 Let&apos;s talk

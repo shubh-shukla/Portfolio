@@ -62,3 +62,30 @@ body {
   background-color: rgba(79, 70, 229, 0.16);
   color: rgb(var(--app-gray-900));
 }
+
+/* Card hover sheen */
+.card-animated::after {
+  content: '';
+  position: absolute;
+  inset: -120% 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-animated:hover::after {
+  opacity: 1;
+  animation: card-sheen 1s ease;
+}
+
+@keyframes card-sheen {
+  to {
+    transform: translateX(120%);
+  }
+}

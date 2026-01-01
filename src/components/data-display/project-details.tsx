@@ -25,7 +25,7 @@ const ProjectDetails = ({
       {/* Image */}
       <div
         className={mergeClasses(
-          'group flex items-center justify-center bg-white/70 p-6 md:w-1/2 lg:p-10 dark:bg-[rgba(8,12,24,0.9)]',
+          'group flex items-center justify-center bg-white/70 p-6 md:w-1/2 lg:p-10 dark:bg-[rgba(6,8,14,0.92)] dark:border dark:border-white/10',
           layoutType === 'default'
             ? 'md:rounded-l-2xl md:border-r md:border-white/10'
             : 'md:order-last md:rounded-r-2xl md:border-l md:border-white/10'
