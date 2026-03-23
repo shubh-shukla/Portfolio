@@ -9,6 +9,24 @@ type DownloadCVProps = {
 };
 
 const DownloadCV = ({ className }: DownloadCVProps) => {
+  const handleCvClick = () => {
+    try {
+      if (typeof navigator !== 'undefined' && 'sendBeacon' in navigator) {
+        navigator.sendBeacon('/api/cv-click', 'cv_click=1');
+        return;
+      }
+
+      void fetch('/api/cv-click', {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: 'cv_click=1',
+        keepalive: true,
+      });
+    } catch {
+      // Intentionally ignore logging failures.
+    }
+  };
+
   return (
     <Button
       className={className}
@@ -20,6 +38,7 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
         target="_blank"
         rel="noopener noreferrer"
         prefetch={false}
+        onClick={handleCvClick}
       >
         Get My CV
       </Link>
