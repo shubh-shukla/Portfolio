@@ -11,15 +11,28 @@ type DownloadCVProps = {
 const DownloadCV = ({ className }: DownloadCVProps) => {
   const handleCvClick = () => {
     try {
-      if (typeof navigator !== 'undefined' && 'sendBeacon' in navigator) {
-        navigator.sendBeacon('/api/cv-click', 'cv_click=1');
+      const nav = globalThis.navigator as any;
+      const ua = nav?.userAgent || '';
+
+      // Coarse browser classification (we store only the bucket, not the full UA string).
+      let browser = 'Other';
+      if (/Edg\//.test(ua)) browser = 'Edge';
+      else if (/OPR\//.test(ua) || /Opera/.test(ua)) browser = 'Opera';
+      else if (/CriOS\//.test(ua) || /Chrome\//.test(ua)) browser = 'Chrome';
+      else if (/Firefox\//.test(ua)) browser = 'Firefox';
+      else if (/Safari\//.test(ua)) browser = 'Safari';
+
+      const body = `cv_click=1&browser=${encodeURIComponent(browser)}`;
+
+      if (nav?.sendBeacon) {
+        nav.sendBeacon('/api/cv-click', body);
         return;
       }
 
       void fetch('/api/cv-click', {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain' },
-        body: 'cv_click=1',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
         keepalive: true,
       });
     } catch {
