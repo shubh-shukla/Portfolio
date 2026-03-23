@@ -9,7 +9,13 @@ const CV_CLICK_EVENTS_KEY = 'cv_click_events';
 const CV_CLICK_EVENTS_KEEP_DAYS = 60; // keep enough for at least last-month history
 
 async function upstashMultiExec(commands: any[][]) {
-  if (!UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN) return null;
+  if (!UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN) {
+    console.error('CV_CLICK upstash env vars missing');
+    return null;
+  }
+
+  // Upstash REST API expects all arguments as strings.
+  const stringified = commands.map((cmd) => cmd.map(String));
 
   const res = await fetch(`${UPSTASH_REDIS_REST_URL}/multi-exec`, {
     method: 'POST',
@@ -17,10 +23,14 @@ async function upstashMultiExec(commands: any[][]) {
       Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(commands),
+    body: JSON.stringify(stringified),
   });
 
-  if (!res.ok) return null;
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    console.error(`CV_CLICK upstash error ${res.status}: ${text}`);
+    return null;
+  }
   return res.json();
 }
 

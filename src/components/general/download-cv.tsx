@@ -25,7 +25,10 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
       const body = `cv_click=1&browser=${encodeURIComponent(browser)}`;
 
       if (nav?.sendBeacon) {
-        nav.sendBeacon('/api/cv-click', body);
+        const blob = new Blob([body], {
+          type: 'application/x-www-form-urlencoded',
+        });
+        nav.sendBeacon('/api/cv-click', blob);
         return;
       }
 
