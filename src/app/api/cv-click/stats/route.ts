@@ -62,15 +62,19 @@ export async function GET(req: Request) {
 
   const events = members
     .map((member) => {
-      // member format: `${timestampMs}|${browser}|${rand}`
+      // New JSON format
+      if (member.startsWith('{')) {
+        try {
+          return JSON.parse(member);
+        } catch {
+          return null;
+        }
+      }
+      // Legacy pipe-delimited format: `${timestampMs}|${browser}|${rand}`
       const [tsStr, browser] = member.split('|');
       const tsMs = Number(tsStr);
       if (!Number.isFinite(tsMs) || !browser) return null;
-
-      return {
-        timestamp: new Date(tsMs).toISOString(),
-        browser,
-      };
+      return { timestamp: new Date(tsMs).toISOString(), browser };
     })
     .filter(Boolean);
 

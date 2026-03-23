@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { headers } from 'next/headers';
 
 export const runtime = 'nodejs';
 
@@ -34,24 +35,58 @@ async function upstashMultiExec(commands: any[][]) {
   return res.json();
 }
 
+function sanitize(val: string | null, maxLen = 30): string {
+  return (val ?? '').replace(/[^a-zA-Z0-9_.\-\/ ]/g, '').slice(0, maxLen) || '';
+}
+
 export async function POST(req: Request) {
   const bodyText = await req.text().catch(() => '');
   const params = new URLSearchParams(bodyText);
-  const browser = (params.get('browser') ?? 'Other').toString();
-  const browserSafe =
-    browser.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 20) || 'Other';
 
   const nowMs = Date.now();
-  console.log(`CV_CLICK browser=${browserSafe}`);
+  const nowISO = new Date(nowMs).toISOString();
+
+  // Client-sent fields
+  const browser = sanitize(params.get('browser'), 20) || 'Other';
+  const os = sanitize(params.get('os'), 20) || 'Other';
+  const language = sanitize(params.get('language'), 10);
+  const referrer = (params.get('referrer') ?? '').slice(0, 200);
+  const screenRes = sanitize(params.get('screen'), 15);
+  const timezone = sanitize(params.get('timezone'), 40);
+  const mobile = params.get('mobile') === 'true';
+
+  // Server-side fields from Vercel / request headers
+  const hdrs = await headers();
+  const ip = hdrs.get('x-forwarded-for')?.split(',')[0]?.trim() || '';
+  const country = hdrs.get('x-vercel-ip-country') || '';
+  const city = hdrs.get('x-vercel-ip-city') || '';
+  const region = hdrs.get('x-vercel-ip-country-region') || '';
+
+  console.log(`CV_CLICK browser=${browser} os=${os} country=${country}`);
 
   const rand = Math.random().toString(36).slice(2, 9);
-  const member = `${nowMs}|${browserSafe}|${rand}`;
+
+  const event = JSON.stringify({
+    id: `${nowMs}-${rand}`,
+    timestamp: nowISO,
+    browser,
+    os,
+    mobile,
+    language,
+    referrer,
+    screen: screenRes,
+    timezone,
+    ip,
+    country,
+    region,
+    city: decodeURIComponent(city),
+  });
+
   const minKeepMs =
     nowMs - CV_CLICK_EVENTS_KEEP_DAYS * 24 * 60 * 60 * 1000;
 
   await upstashMultiExec([
-    ['ZADD', CV_CLICK_EVENTS_KEY, nowMs, member],
-    // Remove anything older than our retention window.
+    ['ZADD', CV_CLICK_EVENTS_KEY, nowMs, event],
     ['ZREMRANGEBYSCORE', CV_CLICK_EVENTS_KEY, 0, minKeepMs],
   ]);
 
