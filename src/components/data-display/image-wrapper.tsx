@@ -28,7 +28,20 @@ const ImageWrapper = ({
 
   const finalSrc = theme === 'dark' ? srcForDarkMode || src : src;
 
-  return <Image src={finalSrc!} alt={alt} {...props} />;
+  // Bypass Next's image optimizer for proxied/private-bucket media so the
+  // browser follows the 307 redirect directly to the Supabase CDN.
+  const isProxied =
+    typeof finalSrc === 'string' &&
+    (finalSrc.startsWith('/api/media/') || finalSrc.startsWith('http'));
+
+  return (
+    <Image
+      src={finalSrc!}
+      alt={alt}
+      unoptimized={isProxied}
+      {...props}
+    />
+  );
 };
 
 export default ImageWrapper;
