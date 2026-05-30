@@ -20,6 +20,7 @@ import {
   ProjectMedia,
 } from '@/lib/types';
 import { mergeClasses } from '@/lib/utils';
+import { track, logGithubClick } from '@/lib/analytics';
 import Typography from '@/components/general/typography';
 import Link from '@/components/navigation/link';
 import Tag from '@/components/data-display/tag';
@@ -46,7 +47,10 @@ const ProjectDetails = ({
   layoutType = 'default',
 }: ProjectDetailsProps) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const openLightbox = (i: number) => setLightboxIndex(i);
+  const openLightbox = (i: number) => {
+    track('project_expand', { project: name, index: i });
+    setLightboxIndex(i);
+  };
 
   // Resolve theme-aware src once; downstream components keep using `m.src`.
   const { resolvedTheme } = useTheme();
@@ -140,14 +144,23 @@ const ProjectDetails = ({
 
         {/* CTAs */}
         <div className="mt-1 flex flex-wrap items-center gap-3">
-          {appStoreUrl && <AppStoreBadge href={appStoreUrl} />}
-          {playStoreUrl && <PlayStoreBadge href={playStoreUrl} />}
+          {appStoreUrl && (
+            <span onClick={() => track('project_store_click', { project: name, store: 'app_store' })}>
+              <AppStoreBadge href={appStoreUrl} />
+            </span>
+          )}
+          {playStoreUrl && (
+            <span onClick={() => track('project_store_click', { project: name, store: 'play_store' })}>
+              <PlayStoreBadge href={playStoreUrl} />
+            </span>
+          )}
           {url && (
             <Link
               href={url}
               externalLink
               noCustomization
               className="inline-flex items-center gap-1.5 rounded-full border border-slate-900/10 bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/20"
+              onClick={() => track('project_visit', { project: name })}
             >
               Visit project
               <ArrowUpRight size={16} />
@@ -159,6 +172,10 @@ const ProjectDetails = ({
               externalLink
               noCustomization
               className="inline-flex items-center gap-1.5 rounded-full border border-slate-900/10 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              onClick={() => {
+                track('project_github', { project: name });
+                logGithubClick(name, githubUrl);
+              }}
             >
               <Github size={16} />
               Source

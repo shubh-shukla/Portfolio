@@ -18,6 +18,7 @@ import ThemeSwitcher from '@/components/general/theme-switcher';
 import IconButton from '@/components/general/icon-button';
 import DownloadCV from '@/components/general/download-cv';
 import Typography from '@/components/general/typography';
+import { track } from '@/lib/analytics';
 
 const Logo = () => (
   <span className="inline-flex items-center gap-2">
@@ -82,6 +83,7 @@ const Header = () => {
                   href={link.href}
                   noCustomization
                   className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-900/5 hover:text-slate-950 dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
+                  onClick={() => track('nav_click', { link: link.label, location: 'header' })}
                 >
                   {link.label}
                 </Link>
@@ -97,7 +99,13 @@ const Header = () => {
         </div>
 
         {/* Mobile trigger */}
-        <Drawer open={isOpen} onOpenChange={setIsOpen}>
+        <Drawer
+          open={isOpen}
+          onOpenChange={(open) => {
+            if (open) track('drawer_open');
+            setIsOpen(open);
+          }}
+        >
           <DrawerTrigger asChild className="flex md:hidden">
             <IconButton>
               <Menu />
@@ -119,6 +127,7 @@ const Header = () => {
                     <Link
                       href={link.href}
                       onClick={() => {
+                        track('nav_click', { link: link.label, location: 'drawer' });
                         const timeoutId = setTimeout(() => {
                           setIsOpen(false);
                           clearTimeout(timeoutId);

@@ -1,8 +1,11 @@
+'use client';
+
 import { Copyright } from 'lucide-react';
 
 import Typography from '@/components/general/typography';
 import Link from '@/components/navigation/link';
 import { EXTERNAL_LINKS } from '@/lib/data';
+import { logGithubClick } from '@/lib/analytics';
 
 const Footer = () => {
   return (
@@ -18,6 +21,9 @@ const Footer = () => {
             externalLink
             withUnderline
             href={EXTERNAL_LINKS.GITHUB_REPO}
+            onClick={() =>
+              logGithubClick('footer_repo', EXTERNAL_LINKS.GITHUB_REPO)
+            }
           >
             coded
           </Link>

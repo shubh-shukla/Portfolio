@@ -6,6 +6,7 @@ import './globals.css';
 import Header from '@/components/layout/header';
 import { Providers } from '@/lib/providers';
 import Footer from '@/components/layout/footer';
+import AnalyticsAutoTracker from '@/components/general/analytics-auto-tracker';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -57,6 +58,17 @@ export const metadata: Metadata = {
 
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
+// Privacy-friendly analytics (Umami Cloud).
+//   NEXT_PUBLIC_UMAMI_WEBSITE_ID  — required to enable Umami
+//   NEXT_PUBLIC_UMAMI_SRC         — optional, defaults to Umami Cloud script
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const umamiSrc =
+  process.env.NEXT_PUBLIC_UMAMI_SRC || 'https://cloud.umami.is/script.js';
+
+// Microsoft Clarity — heatmaps + session replay.
+//   NEXT_PUBLIC_CLARITY_PROJECT_ID — required to enable Clarity
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+
 // Storage host used by the /api/media proxy redirect. Exposing the host (not
 // the service-role key) is safe and lets the browser warm DNS + TLS while the
 // HTML is still parsing, shaving ~200–500 ms off the first image render.
@@ -101,10 +113,31 @@ export default function RootLayout({
             </Script>
           </>
         ) : null}
+        {umamiWebsiteId ? (
+          <Script
+            async
+            defer
+            src={umamiSrc}
+            data-website-id={umamiWebsiteId}
+            strategy="afterInteractive"
+          />
+        ) : null}
+        {clarityProjectId ? (
+          <Script id="ms-clarity" strategy="afterInteractive">
+            {`
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "${clarityProjectId}");
+            `}
+          </Script>
+        ) : null}
         <Providers>
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>
           <Footer />
+          <AnalyticsAutoTracker />
         </Providers>
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { mergeClasses } from '@/lib/utils';
+import { track } from '@/lib/analytics';
 import { EXTERNAL_LINKS } from '@/lib/data';
 
 type DownloadCVProps = {
@@ -59,6 +60,7 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
     } catch {
       // Intentionally ignore logging failures.
     }
+    track('cv_download');
   };
 
   return (

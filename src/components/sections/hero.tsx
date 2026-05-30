@@ -10,6 +10,7 @@ import DownloadCV from '@/components/general/download-cv';
 import Link from '@/components/navigation/link';
 import Reveal from '@/components/general/reveal';
 import { useParallax } from '@/hooks/use-parallax';
+import { track, logGithubClick } from '@/lib/analytics';
 
 /* iOS-26 / visionOS glass tokens — tuned for both light + dark themes.
    Light theme leans on white frost over soft pastel halos.
@@ -122,13 +123,32 @@ const HeroSection = () => {
 
           <Reveal className="flex flex-wrap items-center gap-3" delay={160}>
             <DownloadCV className={ctaClass} />
-            <Link externalLink href="https://github.com/shubh-shukla" noCustomization className={ctaClass}>
+            <Link
+              externalLink
+              href="https://github.com/shubh-shukla"
+              noCustomization
+              className={ctaClass}
+              onClick={() => {
+                track('hero_view_github');
+                logGithubClick('profile_hero', 'https://github.com/shubh-shukla');
+              }}
+            >
               View GitHub
             </Link>
-            <Link href="#work" noCustomization className={ctaClass}>
+            <Link
+              href="#work"
+              noCustomization
+              className={ctaClass}
+              onClick={() => track('hero_explore_work')}
+            >
               Explore work
             </Link>
-            <Link href="#contact" noCustomization className={ctaClass}>
+            <Link
+              href="#contact"
+              noCustomization
+              className={ctaClass}
+              onClick={() => track('hero_lets_talk')}
+            >
               Let&apos;s talk
             </Link>
           </Reveal>

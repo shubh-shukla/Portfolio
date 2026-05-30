@@ -5,13 +5,16 @@ import { MoonStar, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import IconButton from '@/components/general/icon-button';
+import { track } from '@/lib/analytics';
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    const next = theme === 'dark' ? 'light' : 'dark';
+    track('theme_toggle', { to: next });
+    setTheme(next);
   };
 
   useEffect(() => {

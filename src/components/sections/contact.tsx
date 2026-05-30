@@ -11,6 +11,7 @@ import Typography from '@/components/general/typography';
 import Container from '@/components/layout/container';
 import useWindowSize from '@/hooks/use-window-size';
 import { copyTextToClipboard } from '@/lib/utils';
+import { track } from '@/lib/analytics';
 
 let email = 'shukla111shubh@gmail.com';
 let phone = '+91 8868886697';
@@ -27,6 +28,7 @@ const ContactSection = () => {
   const handleCopyClick = async (text: string, type: CopyValue) => {
     try {
       await copyTextToClipboard(text);
+      track('contact_copy', { type });
       setIsCopied(true);
       setCopiedValueType(type);
       let timoutId: any = setTimeout(() => {
