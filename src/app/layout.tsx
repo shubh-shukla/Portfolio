@@ -9,9 +9,9 @@ import Footer from '@/components/layout/footer';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sans' });
 
-const title = 'Shubham Shukla | Full Stack Application Developer From India.';
+const title = 'Shubham Shukla | Frontend-Heavy Full Stack Engineer (React, React Native, Next.js)';
 const description =
-  'A self-proclaimed designer who specializes in full stack development (React Native, MERN, NextJS), from Bengaluru, India.';
+  'Frontend-heavy full stack engineer from Bengaluru, India — building production-grade products with React, React Native, and Next.js, backed by Node.';
 const url = 'https://shubham-shukla.vercel.app';
 
 export const metadata: Metadata = {
@@ -41,18 +41,12 @@ export const metadata: Metadata = {
     title,
     description,
     siteName: title,
-    images: [
-      {
-        url: '/images/open-graph-shubham.png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
     creator: '@shubh-shukla',
-    images: '/images/open-graph-shubham.png',
   },
   icons: {
     icon: '/favicon.ico',
