@@ -64,7 +64,7 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
   return (
     <Button
       className={className}
-      // onClick={() => window?.open('/files/Shubham_Sr_Software_Eng_CV.pdf', '_blank')}
+      // onClick={() => window?.open('/files/cv.pdf', '_blank')}
       asChild
     >
       <Link
