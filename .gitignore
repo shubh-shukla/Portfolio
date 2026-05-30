@@ -25,3 +25,11 @@ dist-ssr
 
 .history
 .next
+
+# local env
+.env
+.env.local
+.env*.local
+
+# local-only working files (media originals + optimize outputs)
+tmp/
