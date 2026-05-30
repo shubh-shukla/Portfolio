@@ -111,7 +111,10 @@ const HeroSection = () => {
               className="text-balance text-gray-900 dark:text-white"
             >
               Hi, I&apos;m{' '}
-              <span className="font-signature font-semibold tracking-tight text-indigo-600 dark:text-indigo-300">
+              <span
+                className="font-signature font-semibold tracking-tight text-indigo-600 dark:text-indigo-300"
+                style={{ fontFamily: 'var(--font-signature), cursive' }}
+              >
                 Shubham
               </span>
               &nbsp;

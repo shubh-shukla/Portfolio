@@ -38,7 +38,10 @@ const Footer = () => {
             NextJS
           </Link>
           &nbsp;by{' '}
-          <span className="font-signature text-base font-semibold leading-none text-gray-900">
+          <span
+            className="font-signature text-base font-semibold leading-none text-gray-900"
+            style={{ fontFamily: 'var(--font-signature), cursive' }}
+          >
             Shubham Shukla
           </span>
         </Typography>

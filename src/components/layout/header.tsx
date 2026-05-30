@@ -31,6 +31,7 @@ const Logo = () => (
     <span
       aria-hidden
       className="font-signature text-2xl font-semibold leading-none text-gray-900 dark:text-white -translate-y-[1px]"
+      style={{ fontFamily: 'var(--font-signature), cursive' }}
     >
       Shubham
     </span>
