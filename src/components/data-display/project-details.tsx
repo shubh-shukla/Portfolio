@@ -286,8 +286,8 @@ const BrowserCarousel = ({ media, name, url, onExpand }: CarouselProps) => {
                   fill
                   sizes="(max-width: 768px) 90vw, 520px"
                   className="object-cover"
-                  priority={i === 0}
-                  loading={i === 0 ? undefined : 'eager'}
+                  priority={i < 2}
+                  loading={i < 2 ? undefined : 'eager'}
                   unoptimized
                 />
               )}
@@ -403,8 +403,8 @@ const PhoneCarousel = ({ media, name, onExpand }: CarouselProps) => {
                     fill
                     sizes="260px"
                     className="object-contain"
-                    priority={i === 0}
-                    loading={i === 0 ? undefined : 'eager'}
+                    priority={i < 2}
+                    loading={i < 2 ? undefined : 'eager'}
                     unoptimized
                   />
                 )}
@@ -506,8 +506,8 @@ const UnframedMobileCarousel = ({ media, name, onExpand }: CarouselProps) => {
                 fill
                 sizes="320px"
                 className="object-contain"
-                priority={i === 0}
-                loading={i === 0 ? undefined : 'eager'}
+                priority={i < 2}
+                loading={i < 2 ? undefined : 'eager'}
                 unoptimized
               />
             </div>
@@ -578,48 +578,42 @@ const InlineVideo = ({
   onEnded?: () => void;
 }) => {
   const ref = useRef<HTMLVideoElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [inView, setInView] = useState(false);
 
-  // Observe whether the video tile is meaningfully visible in the viewport.
-  useEffect(() => {
-    const node = wrapperRef.current;
-    if (!node || typeof IntersectionObserver === 'undefined') {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.75 }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
-
-  // Play only when the slide is active AND on-screen.
+  // Play whenever this slide is the active one. Browsers will start playback
+  // as soon as enough data is buffered — we don't gate on viewport visibility.
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    if (active && inView) {
-      v.play()
-        .then(() => setPlaying(true))
-        .catch(() => setPlaying(false));
+    if (active) {
+      const tryPlay = () =>
+        v
+          .play()
+          .then(() => setPlaying(true))
+          .catch(() => setPlaying(false));
+      // If metadata isn't ready yet, wait for it; otherwise play immediately.
+      if (v.readyState >= 2) tryPlay();
+      else {
+        const onCanPlay = () => {
+          tryPlay();
+          v.removeEventListener('canplay', onCanPlay);
+        };
+        v.addEventListener('canplay', onCanPlay);
+        return () => v.removeEventListener('canplay', onCanPlay);
+      }
     } else {
       v.pause();
       setPlaying(false);
-      if (!active) {
-        try {
-          v.currentTime = 0;
-        } catch {}
-      }
+      try {
+        v.currentTime = 0;
+      } catch {}
     }
-  }, [active, inView]);
+  }, [active]);
 
   const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
 
   return (
-    <div ref={wrapperRef} className="relative h-full w-full bg-black">
+    <div className="relative h-full w-full bg-black">
       {active ? (
         <video
           ref={ref}

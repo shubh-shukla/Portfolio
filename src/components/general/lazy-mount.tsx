@@ -9,6 +9,8 @@ type LazyMountProps = {
   rootMargin?: string;
   /** Wrapper class — given to both placeholder and children's container. */
   className?: string;
+  /** Render children immediately on mount, skipping IntersectionObserver. */
+  immediate?: boolean;
   children: ReactNode;
 };
 
@@ -23,10 +25,11 @@ const LazyMount = ({
   placeholder,
   rootMargin = '600px 0px',
   className,
+  immediate = false,
   children,
 }: LazyMountProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [shouldMount, setShouldMount] = useState(false);
+  const [shouldMount, setShouldMount] = useState(immediate);
 
   useEffect(() => {
     if (shouldMount) return;

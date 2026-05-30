@@ -57,6 +57,17 @@ export const metadata: Metadata = {
 
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
+// Storage host used by the /api/media proxy redirect. Exposing the host (not
+// the service-role key) is safe and lets the browser warm DNS + TLS while the
+// HTML is still parsing, shaving ~200–500 ms off the first image render.
+const supabaseHost = (() => {
+  try {
+    return process.env.SUPABASE_URL ? new URL(process.env.SUPABASE_URL).origin : null;
+  } catch {
+    return null;
+  }
+})();
+
 export default function RootLayout({
   children,
 }: {
@@ -64,26 +75,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
-      {googleAnalyticsId ? (
-        <head>
-          <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-          ></Script>
-          <Script id="google-anayltics-script">
-            {`
+      <body
+        className={`${spaceGrotesk.className} bg-gray text-gray-900 antialiased dark:bg-gray dark:text-gray-100`}
+      >
+        {supabaseHost ? (
+          <>
+            <link rel="preconnect" href={supabaseHost} crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href={supabaseHost} />
+          </>
+        ) : null}
+        {googleAnalyticsId ? (
+          <>
+            <Script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+            />
+            <Script id="google-anayltics-script">
+              {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
             gtag('config', '${googleAnalyticsId}');
           `}
-          </Script>
-        </head>
-      ) : null}
-      <body
-        className={`${spaceGrotesk.className} bg-gray text-gray-900 antialiased dark:bg-gray dark:text-gray-100`}
-      >
+            </Script>
+          </>
+        ) : null}
         <Providers>
           <Header />
           <main className="flex min-h-screen w-full flex-col">{children}</main>
