@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { Space_Grotesk } from 'next/font/google';
+import { Space_Grotesk, Caveat } from 'next/font/google';
 import { Metadata } from 'next';
 
 import './globals.css';
@@ -9,6 +9,12 @@ import Footer from '@/components/layout/footer';
 import AnalyticsAutoTracker from '@/components/general/analytics-auto-tracker';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sans' });
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-signature',
+  display: 'swap',
+});
 
 const title = 'Shubham Shukla | Frontend-Heavy Full Stack Engineer (React, React Native, Next.js)';
 const description =
@@ -84,7 +90,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${caveat.variable} !scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body
         className={`${spaceGrotesk.className} bg-gray text-gray-900 antialiased dark:bg-gray dark:text-gray-100`}
       >

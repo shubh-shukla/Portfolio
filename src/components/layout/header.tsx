@@ -21,16 +21,19 @@ import Typography from '@/components/general/typography';
 import { track } from '@/lib/analytics';
 
 const Logo = () => (
-  <span className="inline-flex items-center gap-2">
+  <span className="inline-flex items-center gap-2" aria-label="Shubham Shukla — home">
     <span
       aria-hidden
       className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500 text-[11px] font-black text-white shadow-[0_6px_18px_-6px_rgba(99,102,241,0.7)]"
     >
       SS
     </span>
-    <Typography variant="h3" className="font-bold tracking-tight">
+    <span
+      aria-hidden
+      className="font-signature text-2xl font-semibold leading-none text-gray-900 dark:text-white -translate-y-[1px]"
+    >
       Shubham
-    </Typography>
+    </span>
   </span>
 );
 

@@ -37,7 +37,10 @@ const Footer = () => {
           >
             NextJS
           </Link>
-          &nbsp;by Shubham Shukla
+          &nbsp;by{' '}
+          <span className="font-signature text-base font-semibold leading-none text-gray-900">
+            Shubham Shukla
+          </span>
         </Typography>
       </div>
     </footer>

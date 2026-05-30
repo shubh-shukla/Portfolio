@@ -110,7 +110,11 @@ const HeroSection = () => {
               variant="h1"
               className="text-balance text-gray-900 dark:text-white"
             >
-              Hi, I&apos;m Shubham.
+              Hi, I&apos;m{' '}
+              <span className="font-signature font-semibold tracking-tight text-indigo-600 dark:text-indigo-300">
+                Shubham
+              </span>
+              &nbsp;
               <span className="inline-block animate-waving-hand"> 👋</span>
             </Typography>
             <Typography className="text-lg text-gray-700 md:text-xl dark:text-white/85">
