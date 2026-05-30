@@ -49,14 +49,9 @@ export const metadata: Metadata = {
     description,
     creator: '@shubh-shukla',
   },
-  icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-  },
+  // Icons are auto-generated from the App Router file conventions:
+  //   src/app/favicon.ico, src/app/icon.svg, public/apple-touch-icon.png
+  // Run `npm run icons:generate` to regenerate from src/app/icon.svg.
 };
 
 const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;

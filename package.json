@@ -9,7 +9,8 @@
     "lint": "next lint",
     "media:upload": "node scripts/upload-media.mjs",
     "media:prune": "node scripts/prune-media.mjs",
-    "media:optimize": "node scripts/optimize-media.mjs"
+    "media:optimize": "node scripts/optimize-media.mjs",
+    "icons:generate": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",
@@ -37,6 +38,7 @@
     "@supabase/supabase-js": "^2.106.2",
     "dotenv": "^17.4.2",
     "mime-types": "^3.0.2",
+    "png-to-ico": "^3.0.1",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0"
   }
