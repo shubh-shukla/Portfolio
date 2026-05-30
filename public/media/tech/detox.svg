@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 320" fill="none">
+  <defs>
+    <linearGradient id="detoxBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E9ECF7"/>
+    </linearGradient>
+    <linearGradient id="detoxVisor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3B4252"/>
+      <stop offset="100%" stop-color="#1F2530"/>
+    </linearGradient>
+    <linearGradient id="detoxSlit" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1FB6FF"/>
+      <stop offset="50%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#1FB6FF"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="256" cy="160" rx="240" ry="150" fill="url(#detoxBody)" stroke="#D7DEEC" stroke-width="2"/>
+  <path d="M256 14 C300 70 300 250 256 306" stroke="#BFD8F2" stroke-width="3" fill="none"/>
+  <ellipse cx="48" cy="160" rx="28" ry="44" fill="#2E3640"/>
+  <ellipse cx="464" cy="160" rx="28" ry="44" fill="#2E3640"/>
+  <rect x="76" y="98" width="360" height="124" rx="62" fill="url(#detoxVisor)"/>
+  <path d="M120 165 C200 200 312 200 392 165 C312 178 200 178 120 165 Z" fill="url(#detoxSlit)"/>
+</svg>
