@@ -92,7 +92,7 @@ const HeroSection = () => {
 
       <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="z-10 flex flex-col gap-8">
-          <Reveal className="flex flex-wrap items-center gap-3" delay={80}>
+          <Reveal immediate className="flex flex-wrap items-center gap-3">
             <span className={glassChip}>
               <span className="relative inline-flex h-2 w-2">
                 <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -105,7 +105,7 @@ const HeroSection = () => {
             </span>
           </Reveal>
 
-          <Reveal className="flex flex-col gap-4 max-w-3xl" delay={120}>
+          <Reveal immediate className="flex flex-col gap-4 max-w-3xl">
             <Typography
               variant="h1"
               className="text-balance text-gray-900 dark:text-white"
@@ -125,7 +125,7 @@ const HeroSection = () => {
             </Typography>
           </Reveal>
 
-          <Reveal className="flex flex-wrap items-center gap-3" delay={160}>
+          <Reveal immediate className="flex flex-wrap items-center gap-3">
             <DownloadCV className={ctaClass} />
             <Link
               externalLink
@@ -169,8 +169,8 @@ const HeroSection = () => {
                     : 'glass-tilt-mirror';
               return (
                 <Reveal
+                  immediate
                   key={index}
-                  delay={140 + index * 80}
                   className={`${glassCard} ${tiltClass}`}
                 >
                   {/* Iridescent diagonal wash, theme-aware. */}
