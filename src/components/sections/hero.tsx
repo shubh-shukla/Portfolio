@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import ShubhamHeadshot from '/public/images/shubham-headshot.webp';
+import ShubhamHeadshot from '/public/media/profile/headshot.webp';
 import SocialIcons from '@/components/data-display/social-icons';
 import Typography from '@/components/general/typography';
 import Container from '@/components/layout/container';
@@ -14,7 +14,7 @@ import { useParallax } from '@/hooks/use-parallax';
 
 const HeroSection = () => {
   const achievements = [
-    { label: 'Full-stack / Mobile', value: 'React Native · Next.js · Node' },
+    { label: 'Frontend-heavy Full Stack', value: 'React · React Native · Next.js' },
     { label: 'Impact', value: '10+ products shipped' },
     { label: 'Leadership', value: 'Mentored squads across timezones' },
   ];
@@ -59,9 +59,10 @@ const HeroSection = () => {
               <span className="inline-block animate-waving-hand"> 👋</span>
             </Typography>
             <Typography className="text-lg text-gray-700 md:text-xl dark:text-white/85">
-              Senior full-stack engineer who builds calm, reliable experiences for mobile and web.
-              I lead squads, ship across React Native, React.js, Next.js, and Node, and obsess over
-              performance, accessibility, and thoughtful interfaces.
+              Frontend-heavy full stack engineer building calm, reliable experiences across web and
+              mobile. I lead squads and ship production-grade products with React, React Native,
+              and Next.js — backed by Node — obsessing over performance, accessibility, and
+              thoughtful interfaces.
             </Typography>
           </Reveal>
 
