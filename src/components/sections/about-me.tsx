@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import AboutMeImage from '/public/images/aboutme-image.webp';
+import AboutMeImage from '/public/media/profile/about.webp';
 import Tag from '@/components/data-display/tag';
 import Container from '@/components/layout/container';
 import Typography from '@/components/general/typography';
@@ -46,17 +46,22 @@ const AboutMeSection = () => {
           </Typography>
           <div className="grid gap-4">
             <Typography>
-              Mobile-first engineer shipping calm, reliable products across React Native, Next.js, and Node. I obsess over performance, accessibility, and delightful interactions.
+              Frontend-heavy full stack engineer shipping calm, reliable products with React,
+              React Native, and Next.js — backed by Node. I obsess over performance, accessibility,
+              and delightful interactions.
             </Typography>
             <Typography>
-              Started in 2021, since then I&apos;ve shipped across iOS/Android/web, modernized stacks, and led teams to launch features with measurable impact.
+              Started in 2021, since then I&apos;ve shipped across web and iOS/Android, modernized
+              stacks, and led teams to launch features with measurable impact.
             </Typography>
             <Typography>
-              When I&apos;m not in build mode, I share learnings, mentor, and prototype new interactions. Always exploring how to make complex systems feel effortless.
+              When I&apos;m not in build mode, I share learnings, mentor, and prototype new
+              interactions. Always exploring how to make complex systems feel effortless.
             </Typography>
           </div>
           <div className="flex flex-wrap gap-3 text-sm">
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">React Native · Next.js · Node</span>
+            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">React · React Native · Next.js</span>
+            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">Node · APIs · Data layer</span>
             <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">DX & Performance</span>
             <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">Team leadership</span>
           </div>
