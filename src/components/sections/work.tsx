@@ -17,11 +17,11 @@ const WorkSection = () => {
           <Tag label="Work" />
         </div>
         <Typography variant="subtitle" className="max-w-2xl text-center">
-          Noteworthy builds shipped across web and mobile — React, Next.js, and React Native.
+          Selected builds from the last few years — each with a clear before/after.
         </Typography>
       </div>
 
-      <div className="flex flex-col gap-8">
+      <div className="glass-stage flex flex-col gap-8">
         {PROJECTS?.map((project, index) => (
           <ProjectDetails
             key={index}
