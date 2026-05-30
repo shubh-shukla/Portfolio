@@ -70,7 +70,10 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
       rel="noopener noreferrer"
       prefetch={false}
       onClick={handleCvClick}
-      className={mergeClasses(className)}
+      className={mergeClasses(
+        'inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-1.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-md dark:bg-white dark:text-slate-900 dark:hover:bg-white/90',
+        className,
+      )}
     >
       Get My CV
     </Link>
