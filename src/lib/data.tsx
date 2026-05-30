@@ -1,42 +1,46 @@
 import { Github, Linkedin, Twitter as X } from 'lucide-react';
 
-import LogoJavascript from '/public/images/logos/icon-javascript.svg';
-import LogoTypescript from '/public/images/logos/icon-typescript.svg';
-import LogoReact from '/public/images/logos/icon-react.svg';
-import LogoNextjs from '/public/images/logos/icon-nextjs.svg';
-import LogoNodejs from '/public/images/logos/icon-nodejs.svg';
-import LogoExpress from '/public/images/logos/icon-express.svg';
-import LogoExpressLight from '/public/images/logos/icon-express-light.svg';
-import Redux from '/public/images/logos/icon-redux.svg';
-import LogoSocket from '/public/images/logos/icon-socket.svg';
-import LogoSocketLight from '/public/images/logos/icon-socket-light.svg';
-import LogoMongoDB from '/public/images/logos/icon-mongodb.svg';
-import LogoD3js from '/public/images/logos/icon-d3js.svg';
-import LogoSass from '/public/images/logos/icon-sass.svg';
-import LogoTailwindcss from '/public/images/logos/icon-tailwindcss.svg';
-import LogoFigma from '/public/images/logos/icon-figma.svg';
-import LogoGit from '/public/images/logos/icon-git.svg';
-import LogoJest from '/public/images/logos/icon-jest.svg';
-import LogoIOS from '/public/images/logos/icon-ios.svg';
-import LogoIOSLight from '/public/images/logos/icon-ios-light.svg';
-import LogoAndroid from '/public/images/logos/icon-android.svg';
-import LogoStorybook from '/public/images/logos/icon-storybook.svg';
-import LogoXcode from '/public/images/logos/icon-xcode.svg';
-import LogoAndroidStudio from '/public/images/logos/icon-android-studio.svg';
-import LogoPostman from '/public/images/logos/icon-postman.svg';
-import LogoRealm from '/public/images/logos/icon-realm.svg';
-import LogoJenkins from '/public/images/logos/icon-jenkins.svg';
+import LogoJavascript from '/public/media/tech/javascript.svg';
+import LogoTypescript from '/public/media/tech/typescript.svg';
+import LogoReact from '/public/media/tech/react.svg';
+import LogoNextjs from '/public/media/tech/nextjs.svg';
+import LogoNodejs from '/public/media/tech/nodejs.svg';
+import LogoExpress from '/public/media/tech/express.svg';
+import LogoExpressLight from '/public/media/tech/express-light.svg';
+import Redux from '/public/media/tech/redux.svg';
+import LogoSocket from '/public/media/tech/socket.svg';
+import LogoSocketLight from '/public/media/tech/socket-light.svg';
+import LogoMongoDB from '/public/media/tech/mongodb.svg';
+import LogoD3js from '/public/media/tech/d3js.svg';
+import LogoSass from '/public/media/tech/sass.svg';
+import LogoTailwindcss from '/public/media/tech/tailwindcss.svg';
+import LogoFigma from '/public/media/tech/figma.svg';
+import LogoGit from '/public/media/tech/git.svg';
+import LogoJest from '/public/media/tech/jest.svg';
+import LogoIOS from '/public/media/tech/ios.svg';
+import LogoIOSLight from '/public/media/tech/ios-light.svg';
+import LogoAndroid from '/public/media/tech/android.svg';
+import LogoStorybook from '/public/media/tech/storybook.svg';
+import LogoXcode from '/public/media/tech/xcode.svg';
+import LogoAndroidStudio from '/public/media/tech/android-studio.svg';
+import LogoPostman from '/public/media/tech/postman.svg';
+import LogoRealm from '/public/media/tech/realm.svg';
+import LogoJenkins from '/public/media/tech/jenkins.svg';
+import LogoGraphQL from '/public/media/tech/graphql.svg';
+import LogoGithubActions from '/public/media/tech/github-actions.svg';
+import LogoFirebase from '/public/media/tech/firebase.svg';
+import LogoSentry from '/public/media/tech/sentry.svg';
+import LogoCypress from '/public/media/tech/cypress.svg';
+import LogoDetox from '/public/media/tech/detox.svg';
 
-import LogoMSI from '/public/images/logos/logo-msi.svg';
-import LogoMSILight from '/public/images/logos/logo-msi-light.svg';
-import LogoUpaayIndia from '/public/images/logos/logo-upaayindia.png';
-import LogoACV from '/public/images/logos/logo-acv.png';
+import LogoMSI from '/public/media/brands/msi.svg';
+import LogoMSILight from '/public/media/brands/msi-light.svg';
+import LogoUpaayIndia from '/public/media/brands/upaayindia.png';
+import LogoACV from '/public/media/brands/acv.png';
 
-import AvatarKartik from '/public/images/avatar-kartik.png';
-import AvatarUjjwal from '/public/images/avatar-ujjwal.png';
-import AvatarShekhar from '/public/images/avatar-shekhar.png';
-
-import ChatSphere from '/public/images/chat-sphere.png';
+import AvatarKartik from '/public/media/people/kartik.png';
+import AvatarUjjwal from '/public/media/people/ujjwal.png';
+import AvatarShekhar from '/public/media/people/shekhar.png';
 
 import {
   ExperienceDetails,
@@ -44,6 +48,7 @@ import {
   TechDetails,
   TestimonialDetails,
 } from '@/lib/types';
+import { mediaUrl } from '@/lib/utils';
 
 export const EXTERNAL_LINKS = {
   GITHUB: 'https://github.com/shubh-shukla',
@@ -101,200 +106,242 @@ export const SOCIAL_LINKS = [
   }
 ];
 
-export const TECHNOLOGIES: TechDetails[] = [
+const TECH = {
+  javascript: { label: 'Javascript', logo: LogoJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  typescript: { label: 'Typescript', logo: LogoTypescript, url: 'https://www.typescriptlang.org/' },
+  react: { label: 'React', logo: LogoReact, url: 'https://react.dev/' },
+  reactNative: { label: 'React Native', logo: LogoReact, url: 'https://reactnative.dev/' },
+  nextjs: { label: 'Next.js', logo: LogoNextjs, url: 'https://nextjs.org/' },
+  redux: { label: 'Redux', logo: Redux, url: 'https://redux.js.org/' },
+  tailwind: { label: 'Tailwindcss', logo: LogoTailwindcss, url: 'https://tailwindcss.com/' },
+  sass: { label: 'Sass/Scss', logo: LogoSass, url: 'https://sass-lang.com/' },
+  d3: { label: 'D3js', logo: LogoD3js, url: 'https://d3js.org/' },
+  ios: { label: 'iOS', logo: LogoIOS, darkModeLogo: LogoIOSLight, url: 'https://developer.apple.com/ios/' },
+  android: { label: 'Android', logo: LogoAndroid, url: 'https://developer.android.com/' },
+  xcode: { label: 'Xcode', logo: LogoXcode, url: 'https://developer.apple.com/xcode/' },
+  androidStudio: { label: 'Android Studio', logo: LogoAndroidStudio, url: 'https://developer.android.com/studio' },
+  detox: { label: 'Detox', logo: LogoDetox, url: 'https://wix.github.io/Detox/' },
+  realm: { label: 'Realm', logo: LogoRealm, url: 'https://realm.io/' },
+  firebase: { label: 'Firebase', logo: LogoFirebase, url: 'https://firebase.google.com/' },
+  graphql: { label: 'GraphQL', logo: LogoGraphQL, url: 'https://graphql.org/' },
+  socket: { label: 'Socket.io', logo: LogoSocket, darkModeLogo: LogoSocketLight, url: 'https://socket.io/' },
+  jest: { label: 'Jest', logo: LogoJest, url: 'https://jestjs.io/' },
+  cypress: { label: 'Cypress', logo: LogoCypress, url: 'https://www.cypress.io/' },
+  storybook: { label: 'Storybook', logo: LogoStorybook, url: 'https://storybook.js.org/' },
+  sentry: { label: 'Sentry', logo: LogoSentry, url: 'https://sentry.io/' },
+  figma: { label: 'Figma', logo: LogoFigma, url: 'https://www.figma.com/' },
+  git: { label: 'Git', logo: LogoGit, url: 'https://git-scm.com/' },
+  githubActions: { label: 'GitHub Actions', logo: LogoGithubActions, url: 'https://github.com/features/actions' },
+  jenkins: { label: 'Jenkins', logo: LogoJenkins, url: 'https://www.jenkins.io/' },
+  postman: { label: 'Postman', logo: LogoPostman, url: 'https://www.postman.com/' },
+  nodejs: { label: 'Node.js', logo: LogoNodejs, url: 'https://nodejs.org/en' },
+  express: { label: 'Express.js', logo: LogoExpress, darkModeLogo: LogoExpressLight, url: 'https://expressjs.com/' },
+  mongodb: { label: 'MongoDB', logo: LogoMongoDB, url: 'https://www.mongodb.com/' },
+} satisfies Record<string, TechDetails>;
+
+export const TECHNOLOGY_GROUPS: { title: string; items: TechDetails[] }[] = [
   {
-    label: 'Javascript',
-    logo: LogoJavascript,
-    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    title: 'Core',
+    items: [TECH.react, TECH.reactNative, TECH.nextjs, TECH.typescript, TECH.javascript, TECH.redux],
   },
   {
-    label: 'Typescript',
-    logo: LogoTypescript,
-    url: 'https://www.typescriptlang.org/',
+    title: 'Styling & Visualization',
+    items: [TECH.tailwind, TECH.sass, TECH.d3, TECH.figma],
   },
   {
-    label: 'React',
-    logo: LogoReact,
-    url: 'https://react.dev/',
+    title: 'Quality & Tooling',
+    items: [TECH.jest, TECH.cypress, TECH.storybook, TECH.sentry, TECH.git, TECH.githubActions, TECH.jenkins, TECH.postman],
   },
   {
-    label: 'React Native',
-    logo: LogoReact,
-    url: 'https://reactnative.dev/',
+    title: 'Mobile',
+    items: [TECH.ios, TECH.android, TECH.xcode, TECH.androidStudio, TECH.detox, TECH.realm, TECH.firebase],
   },
   {
-    label: 'iOS',
-    logo: LogoIOS,
-    darkModeLogo: LogoIOSLight,
-    url: 'https://developer.apple.com/ios/',
+    title: 'Data & Realtime',
+    items: [TECH.graphql, TECH.socket],
   },
   {
-    label: 'Android',
-    logo: LogoAndroid,
-    url: 'https://developer.android.com/',
-  },
-  {
-    label: 'Next.js',
-    logo: LogoNextjs,
-    url: 'https://nextjs.org/',
-  },
-  {
-    label: 'Node.js',
-    logo: LogoNodejs,
-    url: 'https://nodejs.org/en',
-  },
-  {
-    label: 'Express.js',
-    logo: LogoExpress,
-    darkModeLogo: LogoExpressLight,
-    url: 'https://expressjs.com/',
-  },
-  {
-    label: 'Redux',
-    logo: Redux,
-    url: 'https://redux.js.org/',
-  },
-  {
-    label: 'Socket.io',
-    logo: LogoSocket,
-    darkModeLogo: LogoSocketLight,
-    url: 'https://socket.io/',
-  },
-  {
-    label: 'MongoDB',
-    logo: LogoMongoDB,
-    url: 'https://www.mongodb.com/',
-  },
-  {
-    label: 'Realm',
-    logo: LogoRealm,
-    url: 'https://realm.io/',
-  },
-  {
-    label: 'D3js',
-    logo: LogoD3js,
-    url: 'https://d3js.org/',
-  },
-  {
-    label: 'Sass/Scss',
-    logo: LogoSass,
-    url: 'https://sass-lang.com/',
-  },
-  {
-    label: 'Tailwindcss',
-    logo: LogoTailwindcss,
-    url: 'https://tailwindcss.com/',
-  },
-  {
-    label: 'Figma',
-    logo: LogoFigma,
-    url: 'https://www.figma.com/',
-  },
-  {
-    label: 'Jest',
-    logo: LogoJest,
-    url: 'https://jestjs.io/',
-  },
-  {
-    label: 'Git',
-    logo: LogoGit,
-    url: 'https://git-scm.com/',
-  },
-  {
-    label: 'Storybook',
-    logo: LogoStorybook,
-    url: 'https://storybook.js.org/',
-  },
-  {
-    label: 'Jenkins',
-    logo: LogoJenkins,
-    url: 'https://www.jenkins.io/',
-  },
-  {
-    label: 'Xcode',
-    logo: LogoXcode,
-    url: 'https://developer.apple.com/xcode/',
-  },
-  {
-    label: 'Android Studio',
-    logo: LogoAndroidStudio,
-    url: 'https://developer.android.com/studio',
-  },
-  {
-    label: 'Postman',
-    logo: LogoPostman,
-    url: 'https://www.postman.com/',
+    title: 'Backend',
+    items: [TECH.nodejs, TECH.express, TECH.mongodb],
   },
 ];
+
+export const TECHNOLOGIES: TechDetails[] = TECHNOLOGY_GROUPS.flatMap((g) => g.items);
 
 export const EXPERIENCES: ExperienceDetails[] = [
   {
     logo: LogoACV,
     logoAlt: 'ACV logo',
+    company: 'ACV Auctions',
     position: 'Software Engineer 2',
     startDate: new Date(2024, 10),
     currentlyWorkHere: true,
+    accent: 'sky',
+    skills: ['React Native', 'Typescript', 'iOS', 'Android', 'Redux', 'Jest'],
     summary: [
-      "Contributing to the development and optimization of the Vehicle Inspection App using React Native for both iOS and Android platforms",
-      "Developing and implementing new features to enhance user experience and meet business requirements",
-      "Writing clean, maintainable code and conducting code reviews to uphold best practices",
-      "Addressing bugs and enhancing app stability through rigorous testing and debugging",
-      "Performing rigorous testing (unit, integration, and UI tests) to ensure stability and reliability",
+      'Contributing to the development and optimization of the Vehicle Inspection App using React Native for both iOS and Android platforms',
+      'Developing and implementing new features to enhance user experience and meet business requirements',
+      'Writing clean, maintainable code and conducting code reviews to uphold best practices',
+      'Addressing bugs and enhancing app stability through rigorous testing and debugging',
+      'Performing rigorous testing (unit, integration, and UI tests) to ensure stability and reliability',
     ],
   },
   {
     logo: LogoMSI,
     darkModeLogo: LogoMSILight,
     logoAlt: 'Metricstream logo',
+    company: 'MetricStream',
     position: 'Senior Member of Technical Staff',
     startDate: new Date(2024, 6),
     endDate: new Date(2024, 9),
+    accent: 'indigo',
+    skills: ['React.js', 'Next.js', 'AgGrid', 'Typescript', 'iOS', 'Android'],
     summary: [
-      "Led the development of Audit Plan and Scope modules from scratch using AgGrid and React.js",
-      "Modernized the frontend framework, transitioning from Backbone.js to Next.js",
-      "Managing the development and management for Mobile Apps (iOS/Android) delivering exceptional user experiences.",
-      "Creating shareable modules that can be used across 10+ products",
-      "Taking care of Enhancement requests proposed during the development cycle",
+      'Led the development of Audit Plan and Scope modules from scratch using AgGrid and React.js',
+      'Modernized the frontend framework, transitioning from Backbone.js to Next.js',
+      'Managing the development and management for Mobile Apps (iOS/Android) delivering exceptional user experiences.',
+      'Creating shareable modules that can be used across 10+ products',
+      'Taking care of Enhancement requests proposed during the development cycle',
     ],
   },
   {
     logo: LogoMSI,
     darkModeLogo: LogoMSILight,
     logoAlt: 'Metricstream logo',
+    company: 'MetricStream',
     position: 'Member of Technical Staff',
     startDate: new Date(2021, 7),
     endDate: new Date(2024, 5),
+    accent: 'indigo',
+    skills: ['React Native', 'Javascript', 'Redux', 'D3.js', 'Detox', 'Jest', 'AWS'],
     summary: [
-      "Developed hybrid mobile apps for Android and iOS using React Native, JavaScript, and Redux",
-      "Developed and integrated CyberGRC with AWS Audit Manager",
-      "Led the migration of all charts within a GRC application, transitioning from Fusion Charts to D3, delivering advanced scorecards, reports, and trend charts",
-      "Integrated Detox and Jest for end-to-end test automation",
-      "Executed feature migration to use React Native’s new architecture",
-      "Fostered cross-functional collaboration to align project requirements and seamlessly integrate components",
+      'Developed hybrid mobile apps for Android and iOS using React Native, JavaScript, and Redux',
+      'Developed and integrated CyberGRC with AWS Audit Manager',
+      'Led the migration of all charts within a GRC application, transitioning from Fusion Charts to D3, delivering advanced scorecards, reports, and trend charts',
+      'Integrated Detox and Jest for end-to-end test automation',
+      'Executed feature migration to use React Native\u2019s new architecture',
+      'Fostered cross-functional collaboration to align project requirements and seamlessly integrate components',
     ],
   },
   {
     logo: LogoUpaayIndia,
     logoAlt: 'Upaay India logo',
-    position: 'Web Developer - Intern',
+    company: 'Upaay India',
+    position: 'Web Developer \u2014 Intern',
     startDate: new Date(2020, 11),
     endDate: new Date(2021, 1),
+    accent: 'emerald',
+    skills: ['HTML', 'CSS', 'Javascript', 'Node.js'],
     summary: [
       'Acted as team lead in different projects.',
       'Brainstormed new ideas & gathered requirements for internal projects.',
       'Designed architecture of different projects (frontend + backend).',
       'Handled sprint planning & task distribution.',
     ],
-  }
+  },
 ];
 
-export const PROJECTS: ProjectDetails[] = [
+const RAW_PROJECTS: ProjectDetails[] = [
+  {
+    name: 'ACV Pro',
+    tagline: 'iOS & Android · 2024 — Present',
+    description:
+      "ACV's self-inspection app used by certified dealers to inspect vehicles in the field and list them on ACV's nationwide marketplace. Built native flows for guided inspection, OBD-II diagnostics via BlueDriver, photo capture, and offline sync.",
+    kind: 'mobile',
+    framed: false,
+    url: '',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/acv-inspection-app/ios-1.webp', caption: 'iOS' },
+      { src: '/media/projects/acv-inspection-app/ios-2.webp', caption: 'iOS' },
+      { src: '/media/projects/acv-inspection-app/ios-3.webp', caption: 'iOS' },
+      { src: '/media/projects/acv-inspection-app/ios-4.webp', caption: 'iOS' },
+      { src: '/media/projects/acv-inspection-app/android-1.webp', caption: 'Android' },
+      { src: '/media/projects/acv-inspection-app/android-2.webp', caption: 'Android' },
+      { src: '/media/projects/acv-inspection-app/android-3.webp', caption: 'Android' },
+      { src: '/media/projects/acv-inspection-app/android-4.webp', caption: 'Android' },
+      { src: '/media/projects/acv-inspection-app/android-5.webp', caption: 'Android' },
+    ],
+    appStoreUrl: 'https://apps.apple.com/us/app/acv-pro/id6477305313',
+    playStoreUrl:
+      'https://play.google.com/store/apps/details?id=com.acvauctions.acvpro&hl=en_IN',
+    technologies: ['React Native', 'Typescript', 'iOS', 'Android', 'Redux'],
+  },
+  {
+    name: 'XtraTune',
+    tagline: 'Music streaming UI · Web · Side project',
+    description:
+      'A sleek song streaming app built with Next.js, Radix UI and Tailwind — focused on smooth navigation, polished playback controls and a delightful listening experience.',
+    kind: 'web',
+    url: 'https://github.com/shubh-shukla/XtraTune',
+    githubUrl: '',
+    media: [
+      {
+        src: '/media/projects/xtratune-web/light-1.webp',
+        srcDark: '/media/projects/xtratune-web/dark-1.webp',
+      },
+      {
+        src: '/media/projects/xtratune-web/light-2.webp',
+        srcDark: '/media/projects/xtratune-web/dark-2.webp',
+      },
+      {
+        src: '/media/projects/xtratune-web/light-3.webp',
+        srcDark: '/media/projects/xtratune-web/dark-3.webp',
+      },
+      {
+        src: '/media/projects/xtratune-web/light-4.webp',
+        srcDark: '/media/projects/xtratune-web/dark-4.webp',
+      },
+      {
+        src: '/media/projects/xtratune-web/light-5.webp',
+        srcDark: '/media/projects/xtratune-web/dark-5.webp',
+      },
+    ],
+    technologies: ['Next.js', 'React.js', 'Radix UI', 'Typescript', 'Tailwindcss'],
+  },
+  {
+    name: 'XtraTune Mobile',
+    tagline: 'Music streaming · iOS & Android · Side project',
+    description:
+      'The mobile companion to XtraTune — a React Native build of the same streaming experience with native playback, offline downloads, and a tactile, gesture-driven UI.',
+    kind: 'mobile',
+    framed: true,
+    url: '',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/xtratune-mobile/video-1.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-1.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-2.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-2.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-3.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-3.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-4.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-4.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-5.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-5.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-6.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-6.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-7.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-7.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-8.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-8.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/video-9.mp4', type: 'video', poster: '/media/projects/xtratune-mobile/video-9.poster.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-1.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-2.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-3.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-4.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-5.webp' },
+      { src: '/media/projects/xtratune-mobile/screen-6.webp' },
+    ],
+    technologies: ['React Native', 'Typescript', 'Redux', 'Tailwindcss'],
+  },
   {
     name: 'ChatSphere',
+    tagline: 'Realtime MERN chat · Web · Side project',
     description:
-      'This Realtime Chat App is a dynamic web application developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It harnesses the power of WenSockets for seamless and real-time communication, enabling users to engage in instant messaging with ease.',
-    url: 'https://github.com/shubh-shukla/ChatSphere',
-    previewImage: "https://res.cloudinary.com/shubham-node/image/upload/v1716134122/Chat_umvhrx.png",
+      'A realtime chat app built on the MERN stack with WebSockets for instant messaging, presence indicators, media sharing via Cloudinary and a clean Tailwind UI.',
+    kind: 'web',
+    url: 'https://my-chatsphere.vercel.app/',
+    githubUrl: '',
+    media: [
+      {
+        src: '/media/projects/chat-sphere/light-1.webp',
+        srcDark: '/media/projects/chat-sphere/dark-1.webp',
+      },
+      { src: '/media/projects/chat-sphere/architecture.webp' },
+    ],
     technologies: [
       'React.js',
       'Node.js',
@@ -307,19 +354,99 @@ export const PROJECTS: ProjectDetails[] = [
     ],
   },
   {
-    name: 'XtraTune',
-    description: "Crafted a sleek and intuitive song streaming application using Next.js and React.js, seamlessly integrating navigation and playback functionalities for an enhanced user experience.",
-    url: 'https://github.com/shubh-shukla/XtraTune',
-    previewImage: "https://res.cloudinary.com/shubham-node/image/upload/v1717314084/Screenshot_2024-06-02_at_1.07.27_PM_f2zoye.png",
-    technologies: [
-      'Next.js',
-      'React.js',
-      'Radix UI',
-      'Typescript',
-      'Tailwindcss'
+    name: 'MetricStream Mobile · M7',
+    tagline: 'Next-gen GRC companion · iOS & Android',
+    description:
+      "The rebuilt M7 generation of MetricStream's enterprise GRC mobile app. Modernized the navigation model, design system and offline-first workflow engine. Covers issue management, audit observations, approvals and on-the-go GRC actions.",
+    kind: 'mobile',
+    framed: false,
+    url: '',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/metricstream-grc/m7/screen-1.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-2.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-3.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-4.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-5.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-6.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-7.webp' },
+      { src: '/media/projects/metricstream-grc/m7/screen-8.webp' },
     ],
-  }
+    technologies: ['React Native', 'Typescript', 'iOS', 'Android', 'Redux', 'Realm'],
+  },
+  {
+    name: 'D3 Charting System',
+    tagline: "Shared visualization layer powering MetricStream's GRC suite",
+    description:
+      "Designed and built a reusable D3-based charting and dashboarding system used across MetricStream's GRC products — ERM, ORM, CyberGRC, IRCM, Compliance Management and AiSPIRE. Drives every analytics surface you see in those product pages.",
+    kind: 'web',
+    url: '',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/d3-charting-system/01-erm-banner.webp', caption: 'Enterprise Risk Management' },
+      { src: '/media/projects/d3-charting-system/02-erm-analytics.webp', caption: 'ERM analytics' },
+      { src: '/media/projects/d3-charting-system/03-orm.webp', caption: 'Operational Risk Management' },
+      { src: '/media/projects/d3-charting-system/04-orm-dashboards.webp', caption: 'ORM dashboards' },
+      { src: '/media/projects/d3-charting-system/05-cybergrc.webp', caption: 'CyberGRC' },
+      { src: '/media/projects/d3-charting-system/06-cybergrc-charts.webp', caption: 'CyberGRC charts' },
+      { src: '/media/projects/d3-charting-system/07-compliance.webp', caption: 'Compliance Management' },
+      { src: '/media/projects/d3-charting-system/08-ircm.webp', caption: 'IRCM' },
+      { src: '/media/projects/d3-charting-system/09-aispire.webp', caption: 'AiSPIRE — AI-based GRC' },
+      { src: '/media/projects/d3-charting-system/10-rcm.webp', caption: 'Risk & Control Matrix' },
+      { src: '/media/projects/d3-charting-system/11-rem.webp', caption: 'Regulatory Engagement' },
+      { src: '/media/projects/d3-charting-system/12-cim.webp', caption: 'Continuous Issue Mgmt' },
+      { src: '/media/projects/d3-charting-system/13-dark-mode.jpeg', caption: 'Dark mode' },
+    ],
+    technologies: ['D3.js', 'React.js', 'Typescript', 'Sass', 'SVG'],
+  },
+  {
+    name: 'MetricStream Mobile · Euphrates',
+    tagline: 'Original GRC companion · iOS & Android',
+    description:
+      "The original Euphrates-era MetricStream GRC mobile app. Shipped end-to-end mobile workflows for audit observations, issue management, risk assessments and approvals — synced with the core M7 enterprise platform.",
+    kind: 'mobile',
+    framed: false,
+    url: '',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/metricstream-grc/euphrates/screen-1.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-2.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-3.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-4.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-5.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-6.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-7.webp' },
+      { src: '/media/projects/metricstream-grc/euphrates/screen-8.webp' },
+    ],
+    technologies: ['React Native', 'Javascript', 'iOS', 'Android', 'Redux'],
+  },
+  {
+    name: 'CyberGRC',
+    tagline: 'Cyber risk & compliance product · Web',
+    description:
+      "MetricStream's CyberGRC product — an enterprise platform for managing IT & cyber risk, threat and vulnerability management, third-party cyber posture and continuous control assessments. Contributed to the assessment workflows and dashboarding UI.",
+    kind: 'web',
+    url: 'https://www.metricstream.com/products/cyber-grc.htm',
+    githubUrl: '',
+    media: [
+      { src: '/media/projects/cybergrc/overview.mp4', type: 'video', poster: '/media/projects/cybergrc/overview.poster.webp' },
+      { src: '/media/projects/cybergrc/screen-2.webp' },
+      { src: '/media/projects/cybergrc/screen-1.webp' },
+    ],
+    technologies: ['React.js', 'Typescript', 'Redux', 'D3.js', 'Sass'],
+  },
 ];
+
+export const PROJECTS: ProjectDetails[] = RAW_PROJECTS.map((p) => ({
+  ...p,
+  media: p.media?.map((m) => ({
+    ...m,
+    src: typeof m.src === 'string' ? mediaUrl(m.src) : m.src,
+    srcDark:
+      typeof m.srcDark === 'string' ? mediaUrl(m.srcDark) : m.srcDark,
+    poster: m.poster ? mediaUrl(m.poster) : m.poster,
+  })),
+}));
 
 export const TESTIMONIALS: TestimonialDetails[] = [
   {
