@@ -2,7 +2,12 @@ import { PROJECTS } from '@/lib/data';
 import ProjectDetails from '@/components/data-display/project-details';
 import Tag from '@/components/data-display/tag';
 import Typography from '@/components/general/typography';
+import LazyMount from '@/components/general/lazy-mount';
 import Container from '@/components/layout/container';
+
+const ProjectSkeleton = () => (
+  <div className="h-[420px] w-full animate-pulse rounded-xl bg-slate-100/60 dark:bg-white/5" />
+);
 
 const WorkSection = () => {
   return (
@@ -17,17 +22,23 @@ const WorkSection = () => {
           <Tag label="Work" />
         </div>
         <Typography variant="subtitle" className="max-w-2xl text-center">
-          Noteworthy builds shipped across mobile and web.
+          Noteworthy builds shipped across web and mobile — React, Next.js, and React Native.
         </Typography>
       </div>
 
       <div className="flex flex-col gap-8">
         {PROJECTS?.map((project, index) => (
-          <ProjectDetails
+          <LazyMount
             key={index}
-            {...project}
-            layoutType={index % 2 === 0 ? 'default' : 'reverse'}
-          />
+            // First project mounts eagerly so above-the-fold renders fast.
+            rootMargin={index === 0 ? '0px' : '600px 0px'}
+            placeholder={<ProjectSkeleton />}
+          >
+            <ProjectDetails
+              {...project}
+              layoutType={index % 2 === 0 ? 'default' : 'reverse'}
+            />
+          </LazyMount>
         ))}
       </div>
     </Container>
