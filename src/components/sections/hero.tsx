@@ -7,7 +7,6 @@ import SocialIcons from '@/components/data-display/social-icons';
 import Typography from '@/components/general/typography';
 import Container from '@/components/layout/container';
 import DownloadCV from '@/components/general/download-cv';
-import Button from '@/components/general/button';
 import Link from '@/components/navigation/link';
 import Reveal from '@/components/general/reveal';
 import { useParallax } from '@/hooks/use-parallax';
@@ -44,20 +43,27 @@ const glassCard =
 const ctaClass =
   'group/cta relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl px-5 py-2 ' +
   'text-sm font-semibold ' +
-  // light: dark frosted pill on bright bg
-  'text-white bg-slate-900/85 ' +
-  'shadow-[0_18px_50px_-22px_rgba(15,23,42,0.6),inset_0_1px_0_rgba(255,255,255,0.22)] ' +
-  'backdrop-blur-xl backdrop-saturate-150 ' +
-  // dark: lighter frosted pill on dark bg
-  'dark:bg-white/[0.09] dark:text-white ' +
-  'dark:shadow-[0_20px_60px_-26px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.14)] ' +
+  // light: frosted glass pill with dark slate label, matches the chip /
+  // card vocabulary instead of looking like a hard black button.
+  // NOTE: opacity steps must use bracket syntax — Tailwind's default
+  // opacity scale doesn't include /55, /45, /65 etc.
+  'text-slate-900 bg-white/[0.55] ' +
+  'shadow-[0_18px_50px_-22px_rgba(15,23,42,0.30),inset_0_1px_0_rgba(255,255,255,0.75)] ' +
+  'backdrop-blur-2xl backdrop-saturate-[1.8] ' +
+  // dark: flatter, calmer frost. Saturation pulled back so the indigo halo
+  // behind doesn't paint the pill blue, and the heavy drop-shadow + inset
+  // highlight are removed so it sits flush with the surrounding chips.
+  'dark:bg-white/[0.07] dark:text-white ' +
+  'dark:shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)] ' +
+  'dark:backdrop-saturate-100 ' +
   'transition-all duration-300 ease-out ' +
-  'hover:-translate-y-0.5 hover:bg-slate-900/95 ' +
-  'dark:hover:bg-white/[0.14] ' +
+  'hover:-translate-y-0.5 hover:bg-white/[0.7] ' +
+  'dark:hover:bg-white/[0.12] ' +
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent-indigo))] ' +
-  // specular sheen
+  // specular sheen on top half (light only — dark mode stays flat)
   'before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-1/2 ' +
-  'before:rounded-t-xl before:bg-gradient-to-b before:from-white/25 before:via-white/5 before:to-white/0';
+  'before:rounded-t-xl before:bg-gradient-to-b before:from-white/60 before:via-white/15 before:to-white/0 ' +
+  'dark:before:hidden';
 
 const HeroSection = () => {
   const achievements = [
@@ -116,21 +122,15 @@ const HeroSection = () => {
 
           <Reveal className="flex flex-wrap items-center gap-3" delay={160}>
             <DownloadCV className={ctaClass} />
-            <Button asChild className={ctaClass}>
-              <Link externalLink href="https://github.com/shubh-shukla" noCustomization>
-                View GitHub
-              </Link>
-            </Button>
-            <Button asChild className={ctaClass}>
-              <Link href="#work" noCustomization>
-                Explore work
-              </Link>
-            </Button>
-            <Button asChild className={ctaClass}>
-              <Link href="#contact" noCustomization>
-                Let&apos;s talk
-              </Link>
-            </Button>
+            <Link externalLink href="https://github.com/shubh-shukla" noCustomization className={ctaClass}>
+              View GitHub
+            </Link>
+            <Link href="#work" noCustomization className={ctaClass}>
+              Explore work
+            </Link>
+            <Link href="#contact" noCustomization className={ctaClass}>
+              Let&apos;s talk
+            </Link>
           </Reveal>
 
           {/* Achievement cards — alternating subtle 3D tilts so they feel
@@ -236,7 +236,7 @@ const HeroSection = () => {
                       Current Focus
                     </p>
                     <p className="relative mt-1 font-semibold text-slate-900 dark:text-white">
-                      ACV Auctions · React Native
+                      ACV Auctions · React.js · React Native
                     </p>
                   </div>
                   <div className={`${glassCard} p-3`}>
@@ -245,7 +245,7 @@ const HeroSection = () => {
                       Specialty
                     </p>
                     <p className="relative mt-1 font-semibold text-slate-900 dark:text-white">
-                      Performance, Leadership, IC depth
+                      Engineering, Performance, Leadership, IC depth
                     </p>
                   </div>
                 </div>

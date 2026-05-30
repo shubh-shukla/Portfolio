@@ -1,7 +1,7 @@
 'use client';
 
-import Button from '@/components/general/button';
 import Link from 'next/link';
+import { mergeClasses } from '@/lib/utils';
 import { EXTERNAL_LINKS } from '@/lib/data';
 
 type DownloadCVProps = {
@@ -62,21 +62,16 @@ const DownloadCV = ({ className }: DownloadCVProps) => {
   };
 
   return (
-    <Button
-      className={className}
-      // onClick={() => window?.open('/files/cv.pdf', '_blank')}
-      asChild
+    <Link
+      href={EXTERNAL_LINKS.LINKEDIN}
+      target="_blank"
+      rel="noopener noreferrer"
+      prefetch={false}
+      onClick={handleCvClick}
+      className={mergeClasses(className)}
     >
-      <Link
-        href={EXTERNAL_LINKS.LINKEDIN}
-        target="_blank"
-        rel="noopener noreferrer"
-        prefetch={false}
-        onClick={handleCvClick}
-      >
-        Get My CV
-      </Link>
-    </Button>
+      Get My CV
+    </Link>
   );
 };
 

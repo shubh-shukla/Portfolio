@@ -361,11 +361,18 @@ const PhoneCarousel = ({ media, name, onExpand }: CarouselProps) => {
           className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] bg-gradient-to-tr from-sky-300/30 via-fuchsia-300/20 to-transparent opacity-50 blur-2xl dark:from-sky-500/20 dark:via-fuchsia-500/20"
         />
 
-        <button
-          type="button"
+        <div
+          role="button"
+          tabIndex={0}
           onClick={() => onExpand(index)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              onExpand(index);
+            }
+          }}
           aria-label={`Expand ${name} screenshot ${index + 1}`}
-          className="group/phone relative box-content aspect-[9/19.5] w-[240px] rounded-[2.4rem] border-[8px] border-slate-900 bg-slate-900 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.55)] transition-all duration-500 hover:-translate-y-1 hover:rotate-[-1deg] dark:border-slate-950 dark:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95)] sm:w-[260px]"
+          className="group/phone relative box-content aspect-[9/19.5] w-[240px] cursor-pointer rounded-[2.4rem] border-[8px] border-slate-900 bg-slate-900 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.55)] transition-all duration-500 hover:-translate-y-1 hover:rotate-[-1deg] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent-indigo))] dark:border-slate-950 dark:shadow-[0_50px_120px_-40px_rgba(0,0,0,0.95)] sm:w-[260px]"
         >
           {/* Side buttons */}
           <span className="absolute -left-[10px] top-20 h-8 w-[3px] rounded-l bg-slate-700 dark:bg-slate-800" />
@@ -429,7 +436,7 @@ const PhoneCarousel = ({ media, name, onExpand }: CarouselProps) => {
               />
             )}
           </div>
-        </button>
+        </div>
       </div>
 
       {/* Dots */}
