@@ -181,12 +181,12 @@ const HowIWorkSection = () => {
         </Typography>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="glass-stage mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {PRACTICES.map((p, index) => {
           const Icon = p.icon;
           return (
             <Reveal key={p.step} delay={80 * (index + 1)}>
-              <article className="group relative h-full overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 p-6 backdrop-blur transition hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20">
+              <article className="group glass-surface glass-3d relative h-full rounded-2xl p-6">
                 {/* accent glow */}
                 <div
                   aria-hidden

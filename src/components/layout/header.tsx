@@ -20,9 +20,17 @@ import DownloadCV from '@/components/general/download-cv';
 import Typography from '@/components/general/typography';
 
 const Logo = () => (
-  <Typography variant="h3" className="font-bold">
-    {'<SS />'}
-  </Typography>
+  <span className="inline-flex items-center gap-2">
+    <span
+      aria-hidden
+      className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500 text-[11px] font-black text-white shadow-[0_6px_18px_-6px_rgba(99,102,241,0.7)]"
+    >
+      SS
+    </span>
+    <Typography variant="h3" className="font-bold tracking-tight">
+      Shubham
+    </Typography>
+  </span>
 );
 
 const Header = () => {
@@ -30,7 +38,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const size = useWindowSize();
 
-  // close sidebar if open in screen size < 768px
   useEffect(() => {
     if (size?.width && size?.width > 767 && isOpen) {
       setIsOpen(false);
@@ -38,31 +45,58 @@ const Header = () => {
   }, [size, isOpen]);
 
   return (
-    <header
-      className={mergeClasses(
-        'sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100',
-        scrolled ? 'bg-gray/50 backdrop-blur-xl md:border-gray-100' : ''
-      )}
-    >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4 md:px-8">
-        <Link href="/" noCustomization>
+    <header className="sticky top-0 z-30 w-full px-4 pt-3 md:px-6 md:pt-4">
+      <div
+        className={mergeClasses(
+          'mx-auto flex w-full max-w-6xl items-center justify-between gap-4',
+          'rounded-2xl px-3 py-2 md:px-4',
+          'transition-all duration-300',
+          // glass surface
+          'bg-white/55 ring-1 ring-inset ring-white/60 backdrop-blur-2xl backdrop-saturate-[1.6]',
+          'dark:bg-[#0b1224]/55 dark:ring-white/10',
+          // shadow grows when scrolled
+          scrolled
+            ? 'shadow-[0_22px_70px_-30px_rgba(15,23,42,0.45)] dark:shadow-[0_28px_90px_-40px_rgba(0,0,0,0.9)]'
+            : 'shadow-[0_10px_40px_-30px_rgba(15,23,42,0.25)]',
+          // top specular line
+          'before:pointer-events-none before:absolute before:inset-x-6 before:top-0 before:h-px',
+          'before:bg-gradient-to-r before:from-transparent before:via-white/85 before:to-transparent',
+          'dark:before:via-white/30',
+          'relative'
+        )}
+      >
+        <Link
+          href="/"
+          noCustomization
+          className="text-slate-900 dark:text-white"
+        >
           <Logo />
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
-          <ul className="flex list-none items-center gap-6">
+
+        {/* Desktop center nav */}
+        <nav className="hidden md:flex">
+          <ul className="flex list-none items-center gap-1">
             {NAV_LINKS.map((link, index) => (
               <li key={index}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link
+                  href={link.href}
+                  noCustomization
+                  className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-900/5 hover:text-slate-950 dark:text-white/80 dark:hover:bg-white/10 dark:hover:text-white"
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
-          <div className="h-6 w-0.5 bg-gray-100"></div>
-          <div className="flex items-center gap-4">
-            <ThemeSwitcher />
-            <DownloadCV />
-          </div>
+        </nav>
+
+        {/* Desktop actions */}
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeSwitcher />
+          <DownloadCV />
         </div>
 
+        {/* Mobile trigger */}
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex md:hidden">
             <IconButton>

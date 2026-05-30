@@ -21,10 +21,17 @@ const TestimonialsSection = () => {
         </Typography>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {TESTIMONIALS?.map((testimonial, index) => (
-          <TestimonialDetails key={index} {...testimonial} />
-        ))}
+      <div className="[perspective:1600px] [perspective-origin:50%_30%]">
+        <div className="grid gap-6 [transform-style:preserve-3d] md:grid-cols-3">
+          {TESTIMONIALS?.map((testimonial, index) => (
+            <TestimonialDetails
+              key={index}
+              {...testimonial}
+              cylinderIndex={index}
+              cylinderTotal={TESTIMONIALS.length}
+            />
+          ))}
+        </div>
       </div>
     </Container>
   );

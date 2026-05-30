@@ -59,7 +59,7 @@ const ContactSection = () => {
 
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-8">
         <div className="grid w-full gap-4 md:grid-cols-1">
-          <div className="flex flex-col items-center gap-4 rounded-2xl border border-gray-200/80 bg-white/85 p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:shadow-[0_28px_95px_-54px_rgba(0,0,0,0.85)]">
+          <div className="glass-surface flex flex-col items-center gap-4 rounded-2xl p-6">
             <div className="flex flex-wrap items-center justify-center gap-4 text-gray-800 dark:text-white">
               <Mail className="h-6 w-6 md:h-7 md:w-7" />
               <Link href={`mailto:${email}`}>
@@ -72,7 +72,7 @@ const ContactSection = () => {
                 onClick={() => handleCopyClick(email, 'email')}
                 showTooltip={isCopied && copiedValueType === 'email'}
                 tooltipText="Copied!"
-                className="border border-gray-200/80 bg-white/80 text-gray-800 hover:border-gray-300 hover:bg-white dark:border-white/22 dark:bg-[rgba(8,12,24,0.9)] dark:text-white dark:hover:border-white/30 dark:hover:bg-[rgba(8,12,24,0.97)]"
+                className="glass-pill rounded-full p-2 text-gray-800 hover:-translate-y-0.5 dark:text-white"
               >
                 <Copy />
               </IconButton>
@@ -89,7 +89,7 @@ const ContactSection = () => {
                 onClick={() => handleCopyClick(phone.replace(' ', ''), 'phone')}
                 showTooltip={isCopied && copiedValueType === 'phone'}
                 tooltipText="Copied!"
-                className="border border-gray-200/80 bg-white/80 text-gray-800 hover:border-gray-300 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/30 dark:hover:bg-white/20"
+                className="glass-pill rounded-full p-2 text-gray-800 hover:-translate-y-0.5 dark:text-white"
               >
                 <Copy />
               </IconButton>

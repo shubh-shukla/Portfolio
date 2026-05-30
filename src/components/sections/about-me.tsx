@@ -26,15 +26,15 @@ const AboutMeSection = () => {
         {/* Image */}
         <div className="relative flex justify-center lg:order-last">
           <div className="relative w-full max-w-[460px]">
-            <div className="absolute inset-0 -z-10 rounded-[28px] bg-[conic-gradient(from_160deg_at_50%_50%,rgba(14,165,233,0.12),rgba(99,102,241,0.18),rgba(16,185,129,0.12),rgba(14,165,233,0.12))] opacity-90 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[24px] border border-white/15 bg-white/10 shadow-[0_28px_120px_-50px_rgba(15,23,42,0.9)] backdrop-blur">
+            <div className="absolute inset-0 -z-10 rounded-[28px] bg-[conic-gradient(from_160deg_at_50%_50%,rgba(14,165,233,0.18),rgba(99,102,241,0.26),rgba(244,114,182,0.18),rgba(16,185,129,0.18),rgba(14,165,233,0.18))] opacity-90 blur-3xl" />
+            <div className="glass-surface relative overflow-hidden rounded-[24px]">
               <Image
                 src={AboutMeImage}
                 alt="Featured Image"
                 className="h-[360px] w-full object-cover md:h-[440px] lg:h-[500px]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray/45 via-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent dark:from-black/55" />
             </div>
           </div>
         </div>
@@ -46,13 +46,13 @@ const AboutMeSection = () => {
           </Typography>
           <div className="grid gap-4">
             <Typography>
-              Frontend-heavy full stack engineer shipping calm, reliable products with React,
-              React Native, and Next.js — backed by Node. I obsess over performance, accessibility,
-              and delightful interactions.
+              Five years in, I split my time between leading squads and writing the gnarly bits
+              myself. Comfortable owning a feature end-to-end — from a half-baked Figma to a
+              shipped, instrumented build on the App Store.
             </Typography>
             <Typography>
-              Started in 2021, since then I&apos;ve shipped across web and iOS/Android, modernized
-              stacks, and led teams to launch features with measurable impact.
+              Started in 2021, since then I&apos;ve modernized stacks, untangled legacy codebases,
+              and helped teams launch features that actually moved the needle.
             </Typography>
             <Typography>
               When I&apos;m not in build mode, I share learnings, mentor, and prototype new
@@ -60,10 +60,10 @@ const AboutMeSection = () => {
             </Typography>
           </div>
           <div className="flex flex-wrap gap-3 text-sm">
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">React · React Native · Next.js</span>
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">Node · APIs · Data layer</span>
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">DX & Performance</span>
-            <span className="rounded-full border border-gray-200 bg-white px-3 py-1 text-gray-800 dark:border-white/12 dark:bg-[rgba(8,12,24,0.9)] dark:text-white">Team leadership</span>
+            <span className="glass-chip rounded-full px-3 py-1">React · React Native · Next.js</span>
+            <span className="glass-chip rounded-full px-3 py-1">Node · APIs · Data layer</span>
+            <span className="glass-chip rounded-full px-3 py-1">DX & Performance</span>
+            <span className="glass-chip rounded-full px-3 py-1">Team leadership</span>
           </div>
           <Typography>
             Find me on{' '}

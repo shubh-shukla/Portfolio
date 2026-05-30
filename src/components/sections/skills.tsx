@@ -24,11 +24,11 @@ const SkillsSection = () => {
       <div className="flex flex-col items-center gap-4 text-center text-gray-900 dark:text-white">
         <Tag label="Skills" />
         <Typography variant="subtitle" className="max-w-3xl">
-          A frontend-heavy full stack toolbox
+          The toolbox I reach for
         </Typography>
         <Typography className="max-w-2xl text-gray-600 dark:text-white/65">
-          React, React Native, and Next.js sit at the core — with tooling, mobile platforms,
-          and Node-backed services in support.
+          Frameworks I lean on daily, with the tooling, mobile platforms, and Node-backed
+          services that round out the stack.
         </Typography>
       </div>
 
@@ -49,8 +49,8 @@ const SkillsSection = () => {
                 {group.items.map((tech) => (
                   <li key={tech.label}>
                     <Link noCustomization href={tech.url} externalLink>
-                      <div className="group flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 py-1.5 pl-1.5 pr-3.5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/25 dark:hover:bg-white/[0.07]">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white shadow-inner ring-1 ring-slate-200/60 dark:bg-white/[0.06] dark:ring-white/10">
+                      <div className="group glass-pill flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-3.5 transition hover:-translate-y-0.5">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/80 shadow-inner dark:bg-white/[0.08]">
                           <Image
                             src={tech.logo}
                             alt={tech.label}

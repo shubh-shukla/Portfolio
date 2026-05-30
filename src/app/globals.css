@@ -74,6 +74,76 @@ body::after {
   color: rgb(var(--app-gray-900));
 }
 
+/* ---------- Reusable iOS-26 glass surfaces ----------
+   Used across hero, header, cards, chips, tags. Single source of truth so we
+   can tune the whole site by changing these values. */
+@layer components {
+  .glass-surface {
+    @apply relative overflow-hidden backdrop-blur-2xl backdrop-saturate-[1.7] shadow-[0_24px_70px_-30px_rgba(15,23,42,0.35),inset_0_1px_0_rgba(255,255,255,0.6)] dark:shadow-[0_30px_90px_-40px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.12)];
+    /* Layered background: white frost + iridescent diagonal wash. The wash
+       paints behind content automatically because background-image is below
+       the element's text/children in z order. */
+    background-color: rgba(255, 255, 255, 0.35);
+    background-image: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.10) 0%,
+      rgba(244, 114, 182, 0.05) 45%,
+      rgba(16, 185, 129, 0.10) 100%
+    );
+  }
+
+  .dark .glass-surface {
+    background-color: rgba(255, 255, 255, 0.045);
+    background-image: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.18) 0%,
+      rgba(244, 114, 182, 0.08) 45%,
+      rgba(14, 165, 233, 0.16) 100%
+    );
+  }
+
+  /* Top specular line — subtle iOS bevel highlight. */
+  .glass-surface::before {
+    content: '';
+    position: absolute;
+    inset-inline: 1.25rem;
+    top: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7), transparent);
+  }
+
+  .dark .glass-surface::before {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent);
+  }
+
+  .glass-pill {
+    @apply relative inline-flex items-center bg-white/[0.45] backdrop-blur-xl backdrop-saturate-[1.6] shadow-[0_14px_40px_-22px_rgba(15,23,42,0.3),inset_0_1px_0_rgba(255,255,255,0.55)] dark:bg-white/[0.06] dark:shadow-[0_18px_60px_-30px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.14)];
+  }
+
+  .glass-chip {
+    @apply relative inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/[0.45] text-slate-800 backdrop-blur-xl backdrop-saturate-[1.6] shadow-[0_8px_24px_-14px_rgba(15,23,42,0.25),inset_0_1px_0_rgba(255,255,255,0.55)] dark:bg-white/[0.06] dark:text-white dark:shadow-[0_12px_36px_-20px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.14)];
+  }
+
+  /* 3D hover tilt — applied to glass cards site-wide. */
+  .glass-3d {
+    transform-style: preserve-3d;
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0);
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .glass-3d:hover {
+    transform: perspective(1200px) rotateX(2deg) rotateY(-3deg) translateY(-4px) translateZ(8px);
+  }
+
+  .glass-stage {
+    perspective: 1400px;
+    perspective-origin: 50% 30%;
+  }
+}
+
 /* Card hover sheen */
 .card-animated::after {
   content: '';
@@ -121,4 +191,86 @@ body::after {
 .tilt-hover:hover {
   transform: perspective(800px) rotateX(4deg) rotateY(-4deg) translateY(-6px) scale(1.01);
   box-shadow: 0 30px 80px -50px rgba(0, 0, 0, 0.55);
+}
+
+/* 3D glass scene — parent provides perspective, child elements tilt + float. */
+.glass-scene {
+  perspective: 1600px;
+  perspective-origin: 50% 30%;
+}
+
+.glass-tilt {
+  transform-style: preserve-3d;
+  transform: rotateX(8deg) rotateY(-12deg);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  animation: glass-float 9s ease-in-out infinite;
+}
+
+.glass-tilt:hover {
+  transform: rotateX(2deg) rotateY(-3deg) translateZ(10px);
+}
+
+.glass-tilt-soft {
+  transform-style: preserve-3d;
+  transform: rotateX(3deg) rotateY(-4deg);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-tilt-soft:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateZ(6px);
+}
+
+.glass-tilt-mirror {
+  transform-style: preserve-3d;
+  transform: rotateX(3deg) rotateY(4deg);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-tilt-mirror:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateZ(6px);
+}
+
+@keyframes glass-float {
+  0%, 100% {
+    transform: rotateX(8deg) rotateY(-12deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(6deg) rotateY(-10deg) translateY(-8px);
+  }
+}
+
+/* Reusable iridescent edge — animated conic gradient ring. */
+.glass-iridescent::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--ir-angle, 0deg),
+    rgba(14, 165, 233, 0.55),
+    rgba(99, 102, 241, 0.55),
+    rgba(244, 114, 182, 0.55),
+    rgba(16, 185, 129, 0.55),
+    rgba(14, 165, 233, 0.55)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.65;
+  animation: ir-spin 8s linear infinite;
+}
+
+@property --ir-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes ir-spin {
+  to {
+    --ir-angle: 360deg;
+  }
 }
